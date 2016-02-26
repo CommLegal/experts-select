@@ -1,0 +1,30 @@
+<?php require("../includes/config.php");
+
+require("../includes/mysqlwrapper_class.php");
+$conn = new mysqlwrapper_class;
+
+$getCompanyNo = $conn->execute_sql("select", array("*"), "organisation_agreements JOIN e_accounts ON oa_ea_name = ea_id", "oa_id =?", array("i" => $_POST['callValues']));
+ 
+?>
+
+<div class = "col-md-3"></div>
+<div class = "col-md-6">
+	<form id="cancelAgreementForm" method="post" action="">
+
+        <label class = "controls">Reason (optional):</label>
+        <textarea name="cancellationReason" class = "form-control" rows = "4"></textarea>
+        
+        <input type="hidden" class = "form-control" name="agreedmentId" value="<?php echo $getCompanyNo[0]['oa_id']; ?>" />
+        <input type="hidden" class = "form-control" name="expertID" value="<?php echo $getCompanyNo[0]['ea_id']; ?>" />
+        <input type="hidden" class = "form-control" name="mroCompany" value="<?php echo $getCompanyNo[0]['oa_mo_name']; ?>" />
+        
+        <div class = "col-md-12 mt25"><input type="submit" id="cancelAgreement" class="col-md-12 btn btn-primary btn-lg" value="Save" /></div>
+        
+    </form>
+    
+    <div id="success"></div>
+    
+</div>
+<div class = "col-md-3"></div>
+
+<script src="<?php echo _ROOT ?>/js/modal.js"></script>

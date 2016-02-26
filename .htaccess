@@ -1,0 +1,49 @@
+RewriteEngine on
+RewriteBase /comparemedicalexperts/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*) index.php?page=$1 [L]
+
+<ifModule mod_headers.c>
+ExpiresActive On
+# Options +FollowSymlinks
+RewriteCond %{HTTP_REFERER} youporn-forum.uni.me\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} free-social-buttons\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} Get-Free-Traffic-Now\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} claim66229148.copyrightclaims\.org [NC,OR]
+RewriteCond %{HTTP_REFERER} site24393613.snip\.to[NC,OR]
+RewriteCond %{HTTP_REFERER} site50612898.snip\.to [NC,OR]
+RewriteCond %{HTTP_REFERER} site60902850.snip\.to [NC,OR]
+RewriteCond %{HTTP_REFERER} get-your-social-buttons\.info [NC,OR]
+RewriteCond %{HTTP_REFERER} http://site35537361.snip\.to [NC,OR]
+RewriteCond %{HTTP_REFERER} site60902850.snip\.to [NC,OR]
+RewriteCond %{HTTP_REFERER} get-your-social-buttons\.info\/?ref=37939887 [NC,OR]
+RewriteCond %{HTTP_REFERER} adf\.ly/1SDmxr [NC,OR]
+RewriteCond %{HTTP_REFERER} adf\.ly [NC,OR]
+RewriteCond %{HTTP_REFERER} black-friday\.ga [NC,OR]
+RewriteCond %{HTTP_REFERER} hosting-tracker\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} cyber-monday\.ga[NC,OR]
+RewriteCond %{HTTP_REFERER} claimsmag\.co.uk[NC,OR]
+RewriteRule .* – [F]
+
+#Gzip Compression
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/xml application/xhtml+xml application/rss+xml application/x-javascript application/javascript text/javascript
+</ifmodule>
+#End Gzip
+
+# Expires after 1 month
+<filesMatch ".(gif|png|jpg|jpeg|ico|pdf|js|htm|html|txt|svg|ico|cur|rtf|doc|docx)$">
+Header set Cache-Control "max-age=2592000"
+</filesMatch>
+
+# Expires after 1 day
+<filesMatch ".(css)$">
+Header set Cache-Control "max-age=86400"
+</filesMatch>
+</ifModule>
+
+
+DirectoryIndex index.php
+# Use PHP55 as default
+  AddHandler application/x-httpd-php55 .php
