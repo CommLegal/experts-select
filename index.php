@@ -158,7 +158,7 @@ if($_REQUEST['action'] == "signOut")
               <?php } ?>
                 </div>
             <?php } ?>
-            </div>
+            </div>    
 
             <div class="row col-md-12" style="padding-right: 0px; margin-right: 0px">
                 <div class="collapse navbar-collapse" id="navbar-collapse">
