@@ -1,7 +1,7 @@
 <div class= "container main">  
  
     <div class="col-md-12 mb25">              
-        <h3>Oops... ummmmmm</h3><div class="title-divider"></div>
+        <h3>Oops...</h3><div class="title-divider"></div>
     </div> 
     
     <div class="col-md-8">

@@ -24,4 +24,5 @@
 <file name="current-agreement-list.php" server="192.168.3.215//var/www/html/comparemedicalexperts/" local="130994101020000000" remote="130994101020000000" />
 <file name="cancelled-agreement-list.php" server="192.168.3.215//var/www/html/comparemedicalexperts/" local="130994095280000000" remote="130994095280000000" />
 <file name="blocked-agreement-list.php" server="192.168.3.215//var/www/html/comparemedicalexperts/" local="130994171660000000" remote="130994171660000000" />
+<file name="features-mro.php" server="192.168.3.215//var/www/html/comparemedicalexperts/" local="131012955070000000" remote="131012955070000000" />
 </dwsync>
