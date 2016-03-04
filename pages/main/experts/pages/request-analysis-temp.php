@@ -51,14 +51,14 @@ error_reporting(-1);
                         <div class = "col-md-6"><!-- Left section of top panel -->
                               <label>Appointments  After:</label>
                                 <div class="input-group date">
-                                <input id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text">
+                                <input class="form-control"id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text">
                                 <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-th"></i></span>
                                 </div>
                                 
                                 <label>Appointments Before:</label>
                                 <div class="input-group date">
-                                <input id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text">
+                                <input class="form-control"id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text">
                                 <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-th"></i></span>
                                 </div>
@@ -66,10 +66,10 @@ error_reporting(-1);
     
                         <div class = "col-md-6"><!-- Right section of top panel -->
                                 <label>Postcode:</label>
-                                <input id="postcode_search" class="form-control" type="text" placeholder="">
+                                <input id="postcode_search" class="form-control" type="text" placeholder="" autocomplete="off">
                                 <label>Radius (miles):</label>
-                                <input id="radius" class="form-control" type="text" placeholder="">
-                                <input id = "request-stats" name = "request-stats" type = "submit" class = "<?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /> 
+                                <input id="radius" class="form-control" type="text" placeholder="" autocomplete="off">
+                                <input id = "request-stats" name = "request-stats" type = "submit" class = "<?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis"  /> 
                         </div><!-- End of right section -->
 
                 </div>

@@ -46,21 +46,21 @@
                     </p>
 
                     <label>Venue:</label>
-                       <select name="venue_id" id="venue_id" class="venue-box">
+                       <select name="venue_id" id="venue_id" class="form-control venue-box">
                           <option id="v_options" name="v_options" value="1" onClick="loadList">Select Venue</option>
                         </select>
                         
                     <label>Radius:</label>
-                        <input type="text" class="venue-box" name="search_radius" id="search_radius" value="" />
+                        <input type="text" class="form-control venue-box" name="search_radius" id="search_radius" value="" autofill="off" />
    
                     <label>Appointments After:</label>
                         <div class="input-group date">
-                            <input id="date-picker-ven" name="e_appointments--eap_date_after" class="afterdate" value="<?php echo date("d-m-Y");?>" 
+                            <input id="date-picker-ven" name="e_appointments--eap_date_after" class="form-control afterdate" value="<?php echo date("d-m-Y");?>" 
                             type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>  
                     <label>Appointments Before:</label>
                         <div class="input-group date">
-                            <input id="date-picker-ven" name="e_appointments--eap_date_before" class="beforedate" value="<?php echo date("d-m-Y");?>" 
+                            <input id="date-picker-ven" name="e_appointments--eap_date_before" class="form-control beforedate" value="<?php echo date("d-m-Y");?>" 
                             type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>  
 

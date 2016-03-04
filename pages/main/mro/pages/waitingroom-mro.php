@@ -85,7 +85,7 @@
                    
                    <label>Patient Date of Birth:</label>
                     <div id = "date1" class="input-group date">
-                        <input id="date-picker-ven" name="date-picker-dob" value="<?php echo date("d-m-Y");?>" 
+                        <input  class="form-control" id="date-picker-ven" name="date-picker-dob" value="<?php echo date("d-m-Y");?>" 
                         type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>  
                    
@@ -98,7 +98,7 @@
                         
                     <label>Date Preference:</label>
                     <div id = "date1" class="input-group date">
-                        <input id="date-picker-ven" name="date-picker-ven1" value="<?php echo date("d-m-Y");?>" 
+                        <input  class="form-control" id="date-picker-ven" name="date-picker-ven1" value="<?php echo date("d-m-Y");?>" 
                         type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>  
 

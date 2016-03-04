@@ -14,7 +14,6 @@
             
             <input name = "userID" id = "userID" type = "hidden" value="<?php echo $userID ?>" />
             
-            
             <div class = "row">
                 <div class = "col-md-12 mt10 mb25">
                 	<p>This form will generate a Medical Report. A copy of the form will be made once you submit the details. Please make sure
@@ -27,11 +26,20 @@
                     <input class="form-control" name="fullName"  id="fullName" type="text" value="" />
                     <label>Date of Birth:</label>
                     <div class="input-group date">
-                        <input id="date-picker-ven" name="date-picker-DOB" value="<?php echo date("d-m-Y");?>" type="text">
+                        <input class="form-control" id="date-picker-ven" name="date-picker-DOB" value="<?php echo date("d-m-Y");?>" type="text">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                     <label class="control-label">Occupation:</label>
                     <input class="form-control" name="occupation"  id="occupation" type="text" value="" />
+					<label class="control-label">Photo ID:</label>
+                    <select class="form-control" id="hasID">
+                      <option value="No">No</option>
+                      <option value="Yes">Yes</option>
+                    </select>
+
+                    <label class="control-label">Type of ID Checked:</label>
+                    <input class="form-control" name="idType"  id="idType" type="text" value="" />
+
                 </div>
     
                 <div class = "form-group col-md-4">
@@ -41,36 +49,6 @@
                     <input placeholder = "Line 3" type="text" name="address3" class="mt3 form-control" id="address3" value="" >
                     <input placeholder = "Postcode" type="text" name="postcode" class="mt3 form-control" id="postcode" value="" >
                     <input placeholder = "County" type="text" name="county" class="mt3 form-control" id="county" value="" >
-                </div>
-                
-                <div class = "form-group col-md-4">
-                    <label class="control-label">Accompanied By:</label>
-                    <input placeholder = "Leave empty if unaccompanied" type="text" name="accomp" class="form-control" id="accomp" value="" >
-                    <label class="control-label">Records Reviewed:</label>
-                    <select class="form-control" id="isReviewed" name="isReviewed">
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                </div> 
-
-            </div>
-
-            
-            <div class = "row">
-            
-                <div class = "form-group col-md-4">
-                	<label class="control-label">Photo ID:</label>
-                    <select class="form-control" id="hasID">
-                      <option value="No">No</option>
-                      <option value="Yes">Yes</option>
-                    </select>
-
-                    <label class="control-label">Type of ID Checked:</label>
-                    <input class="form-control" name="idType"  id="idType" type="text" value="" />
-
-                </div>   
-            
-                <div class = "form-group col-md-4">
                     <label class="control-label">Instruction Solicitor/Agency:</label>
                     <select class="form-control" id="instructor" name ="instructor">
                       <option value="solicitor">Solicitor</option>
@@ -84,11 +62,17 @@
                     <input class="form-control" name="instructorRef"  id="instructorRef" type="text" value="" />
                 </div>
                 
-                
                 <div class = "form-group col-md-4">
- 					<label>Date of Accident:</label>
+                    <label class="control-label">Accompanied By:</label>
+                    <input placeholder = "Leave empty if unaccompanied" type="text" name="accomp" class="form-control" id="accomp" value="" >
+                    <label class="control-label">Records Reviewed:</label>
+                    <select class="form-control" id="isReviewed" name="isReviewed">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+<label>Date of Accident:</label>
                     <div class="input-group date">
-                        <input id="date-picker-ven" name="date-picker-accident" value="<?php echo date("d-m-Y");?>" type="text">
+                        <input  class="form-control" id="date-picker-ven" name="date-picker-accident" value="<?php echo date("d-m-Y");?>" type="text">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
                     
@@ -97,14 +81,15 @@
                     
                     <label>Date of Report:</label>
                     <div class="input-group date">
-                        <input id="date-picker-ven" name="date-picker-report" value="<?php echo date("d-m-Y");?>" type="text">
+                        <input  class="form-control" id="date-picker-ven" name="date-picker-report" value="<?php echo date("d-m-Y");?>" type="text">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                     </div>
-                
+                </div> 
 
-                </div>
+            </div>
 
-            </div> 
+            
+           
             
             
             <div class = "row mt25">
@@ -300,9 +285,9 @@
                     <label class="control-label">Full Name:</label>
                     <input class="form-control" name="doc_fullname"  id="doc_fullname" type="text" value="" />
                     <label>Date:</label>
-                    <div class="input-group date">
-                        <input disabled id="date-picker-ven" name="date-picker-signed" value="<?php echo date("d-m-Y");?>" type="text">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    <div class="input-group">
+                        <input class="form-control"  disabled id="date-picker-ven" name="date-picker-signed" value="<?php echo date("d-m-Y");?>" type="text">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span></input>
                     </div>
                 </div>
                 <div class = "col-md-4 well">
@@ -311,11 +296,11 @@
                 Those that are within my own knowledge I confirm to be true. The opinions I have expressed represent my true and complete professional 
                 opinion on the matters to which they refer.</p>
 						
-                        <div class="checkbox">
-                          <label><input type="checkbox" value="" name = "agree" id = "agree">I Agree</label>
-                        </div>
-                        
-                        <button id = "makePDF" disabled style = "margin-top:-30px;" class = "pull-right btn btn-lg btn-success" type = "submit">Create PDF  &nbsp;<i class = "fa fa-file-pdf-o"></i></button>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="" name = "agree" id = "agree">I Agree</label>
+                </div>
+                
+                <button id = "makePDF" disabled style = "margin-top:-30px;" class = "pull-right btn btn-lg btn-success" type = "submit">Create PDF &nbsp;<i class = "fa fa-file-pdf-o"></i></button>
 
 
 				</div>

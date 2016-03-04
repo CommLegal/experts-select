@@ -29,8 +29,8 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
 				<div class="form-group">
                 	<div class="col-md-4">
                         <div class="col-lg-12">
-                        	<h4>About You</h4>  
-                            <hr />                      
+                        	<!--<h4>About You</h4>  
+                            <hr />-->                  
                             <label for="salutation" class="control-label">Salutation</label>
                             <select name="ma_s_id" id="ma_s_id" class="form-control" required>
 								<?php foreach($getMROSalutation as $header => $value) { ?>
@@ -55,16 +55,14 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
                     
                     <div class="col-md-4">
                     	<div class="col-lg-12">
-                        <h4>Where are you?</h4>
-                        <hr />
+                        <!--<h4>Where are you?</h4>
+                        <hr />-->
 						<label class="control-label">Address</label>
                             <input type="text" name="ma_address1" class="form-control" id="ma_address1" value="<?php echo $getOrgInformation[0]['mo_address_1'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
-                          <label class="control-label"></label>
-                            <input type="text" name="ma_address2" class="form-control" id="ma_address2" value="<?php echo $getOrgInformation[0]['mo_address_2'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                            <input type="text" name="ma_address2" class="mt3 form-control" id="ma_address2" value="<?php echo $getOrgInformation[0]['mo_address_2'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
-                            <label class="control-label"></label>
-                            <input type="text" name="ma_address3" class="form-control" id="ma_address3" value="<?php echo $getOrgInformation[0]['mo_address_3'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                            <input type="text" name="ma_address3" class="mt3 form-control" id="ma_address3" value="<?php echo $getOrgInformation[0]['mo_address_3'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
                             <label class="control-label">City</label>
                             <input type="text" name="ma_city" class="form-control" id="ma_city" value="<?php echo $getOrgInformation[0]['mo_city'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>

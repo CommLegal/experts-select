@@ -181,14 +181,14 @@
                         <div class = "col-md-6"><!-- Left section of top panel -->
                               <label>Appointments After:</label>
                                 <div class="input-group date">
-                                <input id="date-picker-ven" name="date-picker-ven-after" value="<?php echo date("d-m-Y");?>" type="text">
+                                <input class="form-control"id="date-picker-ven" name="date-picker-ven-after" value="<?php echo date("d-m-Y");?>" type="text">
                                 <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-th"></i></span>
                                 </div>
                                 
                                 <label>Appointments Before:</label>
                                 <div class="input-group date">
-                                <input id="date-picker-ven" name="date-picker-ven-before" value="<?php echo date("d-m-Y");?>" type="text">
+                                <input class="form-control"id="date-picker-ven" name="date-picker-ven-before" value="<?php echo date("d-m-Y");?>" type="text">
                                 <span class="input-group-addon">
                                 <i class="glyphicon glyphicon-th"></i></span>
                                 </div>
@@ -206,9 +206,9 @@
                                 
                         		<span class = "postcode" style = "display:none">
                                 	<label>Postcode:</label>
-                                	<input name="postcode" id="postcode" class="form-control" type="text" required>
+                                	<input name="postcode" id="postcode" class="form-control" type="text" autocomplete = "off" required>
                                 	<label>Radius (miles):</label>
-                                	<input name="radius" id="radius" class="form-control" type="text" placeholder="">
+                                	<input name="radius" id="radius" class="form-control" type="text" autocomplete = "off" placeholder="">
                                 </span>
                                 
                                 <input id = "request-stats" name = "request-stats" type = "submit" class = "mb25 <?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /> 
@@ -265,27 +265,27 @@
 	});
 		
 	
-			GMaps.geocode({
-			  address: $('#postcode').val(),
-			  callback: function(results, status) {
-				if (status == 'OK') {
-		
-					var latlng = results[0].geometry.location;
-						map.setCenter(latlng.lat(), latlng.lng());
-						map.addMarker({
-						lat: latlng.lat(),
-						lng: latlng.lng()
-					});
-						map.drawOverlay({
-						lat: latlng.lat(),
-						lng: latlng.lng(),
-						content: '<div class="map-header"><h4><i class = "fa fa-lg fa-building"></i> Clinic</h4></div>'
-					});
-						$("#lng").val(latlng.lat());
-						$("#lat").val(latlng.lng());
-				}
-			  }
-			});
+		GMaps.geocode({
+		  address: $('#postcode').val(),
+		  callback: function(results, status) {
+			if (status == 'OK') {
+	
+				var latlng = results[0].geometry.location;
+					map.setCenter(latlng.lat(), latlng.lng());
+					map.addMarker({
+					lat: latlng.lat(),
+					lng: latlng.lng()
+				});
+					map.drawOverlay({
+					lat: latlng.lat(),
+					lng: latlng.lng(),
+					content: '<div class="map-header"><h4><i class = "fa fa-lg fa-building"></i> Clinic</h4></div>'
+				});
+					$("#lng").val(latlng.lat());
+					$("#lat").val(latlng.lng());
+			}
+		  }
+		});
 			
 	});
 	

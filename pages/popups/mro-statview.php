@@ -21,7 +21,7 @@ $selectFilled = $conn->execute_sql("select", array("*, COUNT(eap_v_id) AS filled
 
 $selectCreated = $conn->execute_sql("select", array("*, COUNT(eap_v_id) AS createdApps"), "e_appointments", "eap_v_id=?", array("i" => $_POST['callValues']));
 
-//$selectCreatedDay = $conn->execute_sql("select", array("*, COUNT(eap_v_id) AS dailyCancelled"), "e_appointments", "eap_v_id=? GROUP BY DAY(eap_date)", array("i" => $_POST['callValues']);
+$selectCreatedDay = $conn->execute_sql("select", array("*, COUNT(*) AS appCount"), "e_appointments", "eap_v_id=? GROUP BY DAY(eap_date)", array("i" => $_POST['callValues']));
 
 //var_dump($_POST['callValues']);
 
@@ -110,22 +110,38 @@ $selectCreated = $conn->execute_sql("select", array("*, COUNT(eap_v_id) AS creat
          <table class="table table-responsive ">  
               <tbody>
                 <tr class="appbook-header">
-                    <td>Appointments</td>
-                    <td>Appointments Not Filled</td>
-                    <td>Percentage Not Filled</td>
+                    <td>Date</td>
+                    <td>Created</td>
+                    <td>Attended</td>
+                    <td>DNA</td>
+                    <td>Not Filled</td>
                 </tr>
                 
-            <?php //foreach ($selectCreatedDay as $header => $value) { ?>
+				<?php foreach ($selectCreatedDay as $header => $value) { 
 				
-                <tr style="" class="tablerow show-overlay">
-                 
-                    <td>13</td>
-                    <td>3</td>
-                    <td>23.1%</td>
+					$startDay = substr($selectCreatedDay[$header]['eap_date'], 0, 11) . " 00:00:00" ;
+					$endDay = substr($selectCreatedDay[$header]['eap_date'], 0, 11) . " 23:59:59";
+				
+                
+                	$selectCancelledDay = $conn->execute_sql("select", array("COUNT(*) AS cancelled"), "e_appointments", "eap_v_id=? AND eap_cancelled=? AND eap_date>=? AND eap_date<=?", array("i" => $selectCreatedDay[$header]['eap_v_id'], "i2" => "1", "s1" => $startDay, "s2" => $endDay));
+					
+					$selectUnbooked = $conn->execute_sql("select", array("COUNT(*) AS unBooked"), "e_appointments", "eap_v_id=? AND eap_cc_id=? AND eap_date>=? AND eap_date<=?", array("i" => $selectCreatedDay[$header]['eap_v_id'], "i2" => "0", "s1" => $startDay, "s2" => $endDay));
+					
+					$selectAttended = $conn->execute_sql("select", array("COUNT(*) AS attended"), "e_appointments", "eap_v_id=? AND eap_cc_id!=? AND eap_cancelled=? AND eap_date>=? AND eap_date<=?", array("i" => $selectCreatedDay[$header]['eap_v_id'], "i2" => "0", "i3" => "0", "s1" => $startDay, "s2" => $endDay));
+					
+				?>
                     
-                </tr>
-
-			<?php //} ?>
+                    <tr style="" class="tablerow show-overlay">
+                    
+                        <td><?php echo substr($selectCreatedDay[$header]['eap_date'], 0, 11); ?></td>
+                        <td><?php echo $selectCreatedDay[$header]['appCount']; ?></td>
+                        <td><?php echo $selectAttended[0]['attended']; ?></td>
+                        <td><?php echo $selectCancelledDay[0]['cancelled']; ?></td>
+                        <td><?php echo $selectUnbooked[0]['unBooked']; ?></td>
+                        
+                    </tr>
+    
+                <?php } ?>
 
              </tbody>
          </table>

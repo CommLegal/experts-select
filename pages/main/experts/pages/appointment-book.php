@@ -15,7 +15,7 @@
         <div class="col-lg-6">
             <p>Click below to view available appointment date. Please be sure to check this date is suitable well in advance.</p>
             <div class="input-group date">
-                <input id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                <input class="form-control" id="date-picker-ven" name="date-picker-ven" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
             </div>
             </br>
             <input id="submit-data" type="submit" value="Submit" class = "<?php echo $btncolor ?>" />

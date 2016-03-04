@@ -62,14 +62,14 @@
                     <div class="col-lg-6">
                         <label>Appointments After:</label>
                         <div class="input-group date">
-                            <input id="date-picker-ven" name="date-picker-ven-from" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            <input  class="form-control" id="date-picker-ven" name="date-picker-ven-from" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>    
                     </div>
                     
                     <div class="col-lg-6">
                         <label>Appointments Before:</label>
                         <div class="input-group date">
-                            <input id="date-picker-ven" name="date-picker-ven-to" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                            <input  class="form-control" id="date-picker-ven" name="date-picker-ven-to" value="<?php echo date("d-m-Y");?>" type="text"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                         </div>    
                     </div>
                     

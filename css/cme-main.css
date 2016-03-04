@@ -14,6 +14,12 @@ body {padding-top: 0px; position: relative; overflow-y: scroll; /* Nav compensat
 		color:white;
 }
 
+.selectedRow {
+  background-color: darkgrey;
+  cursor: pointer;
+  color:white;
+}
+
 .date{margin-bottom:2px;}
 
 .appbook-content{
@@ -181,6 +187,7 @@ input#date-picker-ven {font-family:inherit; font-size:inherit; line-height: inhe
 .panel-body2{background-color:transparent;}
 
 /* Text styling */
+table {font-family:Levenim MT;;}
 h4 {font-family:Levenim MT; font-weight:bold;}
 h3 {font-family:Levenim MT; font-weight:bold;}
 h3.margined {font-family:Levenim MT; font-weight:bold; margin:0 0 0 28px;}
@@ -603,7 +610,7 @@ button#account {
 .prom-box a:hover {text-decoration:none; 	color: #666;}
 
 .container.main {
-    min-height: 450px;
+    min-height: 500px;
 }
 
 .container.main-venu {
@@ -734,9 +741,9 @@ button#account {
 	color: #000;
 	font-size: 1em;
 	line-height: 1.4em;
-	text-align: left;
+	text-align: left; 
 	/*padding: 0 10%; */
-	max-height: 630px;
+	/*max-height: 630px;*/
 	overflow: auto;
 	margin:0 auto;
 }
