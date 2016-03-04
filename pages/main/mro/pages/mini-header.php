@@ -1,7 +1,7 @@
 <!-- MRO -->
 <?php 
 
- $countUpdates = $conn->execute_sql("select", array("count(*) as rows"), "m_updates", "mu_recipient_id=? AND mu_type !=?", array("i" => $_SESSION['CME_USER']['login_id'], "i2" => "6"));
+ $countUpdates = $conn->execute_sql("select", array("count(*) as rows"), "m_updates", "mu_recipient_id=? AND mu_type < ?", array("i" => $_SESSION['CME_USER']['login_id'], "i2" => "6"));
 
  $getCompanyNo = $conn->execute_sql("select", array("ma_name"), "m_accounts", "ma_id=?", array("i" => $_SESSION['CME_USER']['login_id']));
 

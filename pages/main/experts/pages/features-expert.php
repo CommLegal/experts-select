@@ -1,37 +1,121 @@
-<div class="container main">  
-	
-   <div class= "col-md-12 mb25">
-   
-   		<h3>Expert Features</h3>
-        <div class="title-divider"></div> 
+<script src="<?php echo _ROOT ?>/includes/lightbox/dist/js/lightbox.js"></script>
+<link href="<?php echo _ROOT ?>/includes/lightbox/dist/css/lightbox.css" rel="stylesheet">
 
-   </div> 
-   <div class="col-md-3">
-   <img src="http://placehold.it/350x300" class="img-responsive" />
-   </div>
-   <div class="col-md-9">
-   <p>Expert Select is <b>free</b> for all Medical Experts and can be used to easily book and keep track of your appointments. You will be able to book appointments directly into your diaries instead of wasting time on the telephone and emailing to confirm an appointment. </p>
-  <p>This booking system notifies all relevant parties; so when a Medical Expert books an appointment, this is then made available to book through the MRO waiting room page. Once this appointment has been booked by the MRO, the Medical Expert is informed that the appointment has been booked and the Patient gets notified with the Medical Expert details and the venue details. You are also able to generate a Medical Report which is then saved to your documents page</p>
-  <p>Once logged in, Experts can:</p>
-  <ul>
-  	<li>Manage Appointments</li>
-    <li>Venue Management</li>
-    <li>Keep track of notifications</li>
-    	 <ul>
-        	<li>Messages</li>
-            <li>Cancellations</li>
-            <li>Appointment Requests</li>
-            <li>Appointment Updates</li>
-            <li>Aggrement Enquires</li>
-            <li>Archived</li>
-         </ul>
-    	<li>Upload Documents</li>
-   		<li>Medical Report Generation</li>
-    	<li>Manage MRO agreements</li>
-    	<li>Search for Appointments created by MRO's or a specific MRO</li>
-    </ul>
-  
-  <p>Even though this is <b>free</b>, we <b>don't</b> restrict any features and we don't limit how many appointments and venues that are made.</p>
-   </div>
+<div class="container main">  
+        <div class = "row">
+            <div class= "col-md-12 mb25">
+                <h3>Experts:</h3>
+                <div class="title-divider"></div>
+            </div> 
+            
+            <div class="col-md-3">
+            <a href="images/mro-updates.PNG" data-lightbox="example-1"><img class="img-responsive" src="images/mro-updates.PNG" alt="Girl looking out people on beach"></a>
+            </div>
+            
+            <div class="col-md-9">
+                   
+                <h4>What Expert Select can offer:</h4> 
+                <p> 
+                Find appointments using the Waiting Room feature, these are appointments specifically set up by medical reporting organizations available
+                for any expert to take.
+                Manage your agreements with medical reporting organizations with the Agreement Manager. Change your agreement details and send them to 
+                the organization for confirmation. Use the report builder to generate a PDF of your medical report. The document uploader will allow you
+                to store these documents as well as your own, to send to organizations. Upload your CV and details of your speciality.
+                </p>
+                
+        	</div>
+
+            
+	</div>
+
+    <div class = "row mt25">
+     <div class="title-divider"></div>
+
+        <div class = "col-md-9 mb25">    
+            <h4 class = "mt25">Agreement Manager:</h4>
+            <p>
+            This tool allows you to easily manage your agreements with medical reporting organizations. View and change the agreement details including the cost of reports,
+            appointment quota per month and give them a rating. All changes will be sent to the organization for confirmation before updating the agreement.
+            </p>
+        </div>
+        <div class="col-md-3 mt25">
+            <img src="images/mro-waiting_room.PNG" class="img-responsive" />
+        </div>
+    </div>
+
+
+    <div class = "row mt25">
+     <div class="title-divider"></div>
+        <div class="col-md-3 mt25">
+            <img src="images/mro-user_panel.PNG" class="img-responsive" />
+        </div>
+        <div class = "col-md-9 mb25">    
+            <h4 class = "mt25">Report Builder:</h4>
+            <p>
+            This tool allows you to build a report with ease. This report will be uploaded automatically to your documents page. Reports can be sent to
+            MROs and can also be generated straight after an appointment has been attended. 
+            </p>
+        </div>
+
+    </div>
+    
+    <div class = "row mt25">
+     <div class="title-divider"></div>
+
+        <div class = "col-md-9 mb25">    
+            <h4 class = "mt25">Waiting Room:</h4>
+            <p>
+            This powerful feature will let you find all available appointments within a surrounding area. Enter a postcode with a miles radius and
+            each appointment will show on a map. You'll be able to book these appointments from the same screen with an option to change the appointment
+            duration, time slot and venue.
+            </p>
+        </div>
+        <div class="col-md-3 mt25">
+            <img src="images/mro-waiting_room.PNG" class="img-responsive" />
+        </div>
+    </div>
+    
+    <div class = "row mt25">
+     <div class="title-divider"></div>
+        <div class="col-md-3 mt25">
+            <img src="images/mro-waiting_room.PNG" class="img-responsive" />
+        </div>
+        <div class = "col-md-9 mb25">    
+            <h4 class = "mt25">Appointment Book:</h4>
+            <p>
+            The Appointment Book will show all your booked appointments on a given date. From here you can individually select appointments and view them in detail.
+            Once a patient has been assigned to the appointment you'll be able to view the 'appointment overview', a page specially designed to show all the
+            important details of the appointment. A map will be generated with the route from the patients house to the chosen venue. Directions are also generated.
+            </p>
+        </div>
+
+    </div>
+    
+    <div class = "row mt25">
+     <div class="title-divider"></div>
+
+        <div class = "col-md-9 mb25">    
+            <h4 class = "mt25">Booking Statistics:</h4>
+            <p>
+            View the statistics of appointments booked in a specified area. From here you can view a map with all the appointment details.
+            </p>
+        </div>
+        <div class="col-md-3 mt25">
+            <img src="images/mro-waiting_room.PNG" class="img-responsive" />
+        </div>
+    </div>
+    
+    <div class = "row mt25">
+        <div class="title-divider"></div>
+            <div class = "well">
+            <p class = "mt25">This system is <b>free</b> to use with no hidden costs or fees. 
+            <a href = "index.php?displayPage=expert-registration">Sign up today</a> to see how we can benefit your organization.</p>
+            </div>
+        </div>
+    </div>
     
 </div> 
+
+<script>
+	
+</script>

@@ -34,9 +34,15 @@
                     	<div class="row mb25">
                             <h3>Welcome to Expert Select</h3>
                             <div class="title-divider"></div>
-                            <p class="mb25"></p> 
-                            <p>Our system is <b>free</b> to both MRO's and Medical Experts. There are no limits to any of our features. Here is what our system can offer you.<br /><br /><b>Medical Experts</b><br/>We provide the ability to manage your appointments, venues and MRO agreements easily. Appointments that are added to our booking system are then made available to the MRO. We also provide a Medical Report Generation suite, once created the Medical Report is then send in your own documents section <br /><br />
-                             <b>MRO's</b><br/>We provide the ability to request appointments made by Medical Experts and manage agreements that you hold with particular Medical Experts. Appointments that are made through our booking system are made available to the Medical Expert. We also allow you to create users for your organisation, which will then allow you to change permissions giving you access to particular pages on our website.</p>
+                           
+<p class = "mt25">Our system is <b>free</b> to both MRO's and Medical Experts. There are no limits to any of our features. Here is what our system can offer you.</p>
+                            
+<h4 class = "mt25">Medical Experts</h4>
+<p>We provide the ability to manage your appointments, venues and MRO agreements easily. Appointments that are added to our booking system are then made available to the MRO. We also provide a medical report generator which will let you create and save PDF format reports after your appointments.</p> 
+
+<h4 class = "mt25">MRO's</h4>
+<p>We provide the ability to request appointments made by Medical Experts and manage agreements that you hold with particular Medical Experts. Appointments that are made through our booking system are made available to the Medical Expert. We also allow you to create users for your organisation, which will then allow you to change permissions giving you access to particular pages on our website.</p>
+                            
                          </div>
                     </div>
 

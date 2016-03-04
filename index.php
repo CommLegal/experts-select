@@ -1,11 +1,7 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
--->
     <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
-    
-
+	
 </head>
 
 <?php 
@@ -66,6 +62,8 @@ if($_REQUEST['action'] == "signOut")
     <link href="<?php echo _ROOT ?>/css/calendar.css" rel="stylesheet">
     <link href="<?php echo _ROOT ?>/css/cme-main.css" rel="stylesheet">
     <link href="<?php echo _ROOT ?>/css/bootstrap-datepicker.min.css" rel="stylesheet">  
+    
+
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -138,22 +136,21 @@ if($_REQUEST['action'] == "signOut")
                 <?php } ?>
                     
 			  <?php if($_SESSION['CME_USER']['type'] == "expert") { ?>
-                  <ul class="dropdown-menu pull-right account" aria-labelledby="account">
-                    <li><a href="index.php?page=account">Your Expert Profile</a></li>
-                    <li><a href="index.php?page=upload-expert">Upload Documents</a></li>
-                    <li><a href="index.php?page=reportbuilderform">Report Builder</a></li>
-                    <li><a href="index.php?page=appointments">Appointment Management</a></li>
-                    <li><a href="index.php?page=agreements-expert">MRO Agreements</a></li>
+                  <ul class="fa-ul dropdown-menu pull-right account" aria-labelledby="account">
+                    <li><a href="index.php?page=account"><i class = "fa fa-user"></i>&nbsp; My Profile</a></li>
+                    <li><a href="index.php?page=agreements-expert"><i class = "fa fa-thumbs-o-up"></i>&nbsp; Agreements</a></li>
+                    <li><a href="index.php?page=appointments"><i class = "fa fa-calendar"></i>&nbsp; Appointment Manager</a></li>
+         			<li><a href="index.php?page=reportbuilderform"><i class = "fa fa-file-text"></i>&nbsp; Report Builder</a></li>
+                    <li><a href="index.php?page=upload-expert"><i class = "fa fa-upload"></i>&nbsp; Document Uploader</a></li>
                   </ul>
 
               <?php	} 
               elseif ($_SESSION['CME_USER']['type'] == "mro") { ?>
-                  <ul class="dropdown-menu pull-right account" aria-labelledby="account">
-                    <li><a href="index.php?page=account">Your MRO Profile</a></li>
-                    <li><a href="index.php?page=appointments">Your Appointments</a></li>
-                   <!--- <li><a href="?page=appointments">Appointment Management</a></li> --->
-                    <?php if($selectMro[0]['ma_permissions'] == "3") { ?> <li><a href="index.php?page=agreements-mro">Expert Agreements</a></li>
-                    <li><a href="index.php?page=user-panel">User Panel</a></li><?php } ?>
+                  <ul class="fa-ul dropdown-menu pull-right account" aria-labelledby="account">
+                    <li><a href="index.php?page=account"><i class = "fa fa-user"></i>&nbsp; My Profile</a></li>
+                    <li><a href="index.php?page=appointments"><i class = "fa fa-calendar"></i>&nbsp; Appointments</a></li>
+                    <?php if($selectMro[0]['ma_permissions'] == "3") { ?> <li><a href="index.php?page=agreements-mro"><i class = "fa fa-thumbs-o-up"></i>&nbsp; Agreements</a></li>
+                    <li><a href="index.php?page=user-panel"><i class = "fa fa-users"></i>&nbsp; User Panel</a></li><?php } ?>
                   </ul>				  
               <?php } ?>
                 </div>
@@ -190,14 +187,19 @@ if($_REQUEST['action'] == "signOut")
     	<div class="container">
         	<div id = "headerfix" class="row">
             	<div class="col-md-4 col-xs-12">
+                
                 	<h3><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;A bit about us</h3>
-                    <p>Expert Select exists to make life easier for medical experts and Medical Reporting Organizations. Join for free
-                    today to see our booking system, appointment manager and other vital features to keep on track!</p>
+                    
+                    <p>Expert Select exists to make life easier for both Medical Experts and Medical Reporting Organizations. Join for free
+                    today to see our booking system, appointment manager and other essential features to keep on track!</p>
                 </div>
                 <div class="col-md-4 col-xs-12">
+                
                 	<h3><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;I'm an MRO</h3>
-                    <p>Medical Reporting Organizations can use our system to find Experts, book specific appointments and set up venues for
-                    your experts. You can rate your experiences with other Experts and order them by price, rating and distance.</p>
+                    
+                    <p>Medical Reporting Organizations can use our system to find Medical Experts, book specific appointments and set up venues for
+                    appointments. You can rate your experiences with other Experts and list them by price, rating and distance.</p>
+                    
                     <a href="<?php echo _ROOT ?>/index.php?displayPage=features-mro" class="btn btn-success" 
                     style="position: relative; float:left;"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Features &amp; Pricing</a>
                     <a href="<?php echo _ROOT ?>/index.php?displayPage=mro-registration" class="btn btn-success" 
@@ -206,12 +208,14 @@ if($_REQUEST['action'] == "signOut")
                     <div class="clear: both;"></div>
                 </div>
                 <div class="col-md-4 col-xs-12">
+                
                 	<h3><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;I'm an Expert</h3>
-                    <p>
-                    We have everything you need to keep track of your appointments and bookings. Link with
-                    MROs and build up a reputation with our rating system. Build your profile and upload
-                    your CV. 
-                    </p><br>
+                    
+                    <p>We have everything you need to keep track of your appointments and bookings. Connect with
+                    MROs and build up a reputation with our ratings system. Build your profile and upload your CV.
+                    </p>
+                    
+                    <br>
                     <a href="<?php echo _ROOT ?>/index.php?displayPage=features-expert" class="btn btn-success" 
                     style="position: relative; float:left;">
                     <span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;Features &amp; Pricing</a>

@@ -67,6 +67,27 @@
                                     <input type="email" class="form-control" id="Vemail" name = "Vemail" required  />
                                 </div>
                             </div>
+                            
+                            <?php if($_SESSION['CME_USER']['type'] == "expert") { ?>
+                            
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>From:</label>
+                                    <input type="text" class="form-control" id="senderExpertName" name = "senderExpertName" required />
+                                </div>
+                            </div>
+                            
+                            <?php } elseif($_SESSION['CME_USER']['type'] == "mro") { ?>
+                            
+                            <div class="control-group form-group">
+                                <div class="controls">
+                                    <label>From:</label>
+                                    <input type="text" class="form-control" id="senderMROName" name = "senderMROName" required />
+                                </div>
+                            </div>
+                            
+                            <?php } ?>
+                            
                             <div class="control-group form-group">
                                 <div class="controls">
                                     <label>Subject:</label>

@@ -1,7 +1,7 @@
 <!-- EXPERT -->
 <?php 
 
-$countUpdates = $conn->execute_sql("select", array("count(*) as rows"), "e_updates", "eu_recipient_id=? AND eu_type !=?", array("i" => $_SESSION['CME_USER']['login_id'], "i2" => "6"));
+$countUpdates = $conn->execute_sql("select", array("count(*) as rows"), "e_updates", "eu_recipient_id=? AND eu_type < ?", array("i" => $_SESSION['CME_USER']['login_id'], "i2" => "6"));
 
 ?>
 

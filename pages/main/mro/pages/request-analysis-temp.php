@@ -1,14 +1,7 @@
-<!-- 
-    
-    MRO
-
--->
-    
-
-
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.src.js"></script>
 
 <?php
-		
 		
 		if ($_SESSION['CME_USER']['type'] == "mro") {$btncolor = "btn btn-primary";} 
 		else {$btncolor = "btn btn-success";}
@@ -18,12 +11,37 @@
 <!--
 <body onLoad="loadmap()">
 -->
+
+<div id="overlay" style="margin-top:350px" >
+    <div style="width:60%; margin-left:-5%;" id="overlay-content" class="ro">
+        <div id="close" style="background-color:#337AB7"><button type="button" class="close" ><p>Close <i class = "fa fa-lg fa-times"></i></p></button></div>
+            <div class="scroll jamesbonder" style="height:700px; max-height:700px;">
+                <div id="overlay-title">
+                    <h3>Booking Statistics</h3>
+                </div>
+                
+                <div id="overlay-text">
+                    
+                </div>
+                
+                <div style="clear: both;"></div>
+            </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+
+
+
+
 <body>
+
+
 	<div class= "container">   
-		<div class="col-md-12">              
+		<div class="col-md-12">   
 			<h3>Booking Statistics</h3><div class="title-divider"></div>
-            <div class = "mt10 col-md-12 alert alert-info"><i class = "fa fa-lg fa-info"></i> &nbsp; Please note, this page may not run properly during the testing period.</div>
-</div> 
+            <div class = "mt10 col-md-12 alert alert-info"><i class = "fa fa-lg fa-info"></i> &nbsp; Please note, this page works beautifully despite testing.</div>
+		</div> 
 		
 
 		<div class = "col-md-12"><!-- Panel wrap --> 
@@ -152,7 +170,7 @@
                    
 		<div class = "col-md-12">
                
-                <label>Search by:</label>
+                <label>Search by:</label>	
                 
                 <span id = "showExpert" class = "btn btn-default"><b>Expert</b></span>
                 <span id = "showPostcode" class = "btn btn-default">Postcode</span>
@@ -193,14 +211,14 @@
                                 	<input name="radius" id="radius" class="form-control" type="text" placeholder="">
                                 </span>
                                 
-                                <input id = "request-stats" name = "request-stats" type = "submit" class = "<?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /> 
+                                <input id = "request-stats" name = "request-stats" type = "submit" class = "mb25 <?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /> 
                                 <input type = "hidden" name = "lng" id = "lng" />
                                 <input  type = "hidden" name = "lat" id = "lat" />
                                 
                                 
                         </div><!-- End of right section -->
                         
-                        <div id="success"></div>
+                        <div class = "mt25" id="success"></div>
         
                </div>    
 
@@ -215,61 +233,15 @@
 		</div>
         
         		
-		<div class = "col-md-12"><!-- Panel wrap --> 
+		<div class = "col-md-12" style="display:none"><!-- Panel wrap --> 
 			
-			<div class="panel panel-default"><!-- Panel Container -->
-						<div class="panel-heading"><h4>Results</h4></div>
-						<div class="panel-body">
-							<div class = "col-md-5">
-							<div id="map" class = "whiteborder" style="width:100%; height:500px;"></div>
-							</div>
-                             <p>Click a pin on the map to show more details.</p>
-
- 				<div class = "col-md-7 area_details" style = "display:none">
-						<h3>Area Details</h3>
-                        <div class = "scroll">
-                           <table class="tg table midd">
-                              <tr><!-- Top row -->
-                                <th class="tg-031e midd"><h4>Town</h4></th>
-                                <th class="tg-031e midd"><h4>Venue</h4></th>
-                                <th class="tg-031e midd"><h4>Attendees</h4></th>
-                                <th class="tg-031e midd"><h4>Cancelations</h4></th>
-                                <th class="tg-031e midd"><h4>Appointments</h4></th>
-                              </tr>
-                              <tr>
-                                <td class="tg-031e">York</td>
-                                <td class="tg-031e">Health Clinic</td>
-                                <td class="tg-031e">13</td>
-                                <td class="tg-031e">2</td>
-                                <td class="tg-031e">54</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-031e">York</td>
-                                <td class="tg-031e">Health Clinic</td>
-                                <td class="tg-031e">13</td>
-                                <td class="tg-031e">2</td>
-                                <td class="tg-031e">54</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-031e">York</td>
-                                <td class="tg-031e">Health Clinic</td>
-                                <td class="tg-031e">13</td>
-                                <td class="tg-031e">2</td>
-                                <td class="tg-031e">54</td>
-                              </tr>
-                              <tr>
-                                <td class="tg-031e">York</td>
-                                <td class="tg-031e">Health Clinic</td>
-                                <td class="tg-031e">13</td>
-                                <td class="tg-031e">2</td>
-                                <td class="tg-031e">54</td>
-                              </tr>
-                        	</table>
-                            </div>
-						</div>
-
-							
-						</div>
+                <div class="panel panel-default"><!-- Panel Container -->
+                <div class="panel-heading"><h4>Results</h4></div>
+                    <div class="panel-body">
+                        <div class = "col-md-5">
+                        	<div id="map" class = "whiteborder" style="width:100%; height:500px;"></div>
+                    	</div>
+                    </div>
 			</div>
 		</div>
 
@@ -277,16 +249,12 @@
 
 	</div><!-- End container -->    
 </body>
-<script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+
 <script type="text/javascript" src="<?php echo _ROOT ?>/js/gmaps.js"></script>
 
-<head>
-<script>
-//BOOK STATS
-
-
-
-$('#postcode').blur(function(){
+	<script>
+	$('#postcode, #radius').blur(function(e){
+	//////Draw map/////////////////
 	var lat = '';
 	var lng = '';
 	
@@ -295,33 +263,53 @@ $('#postcode').blur(function(){
 	  lat: lat,
 	  lng: lng,
 	});
-
-	GMaps.geocode({
-	  address: $('#postcode').val(),
-	  callback: function(results, status) {
-		if (status == 'OK') {
-
-			var latlng = results[0].geometry.location;
-				map.setCenter(latlng.lat(), latlng.lng());
-				map.addMarker({
-				lat: latlng.lat(),
-				lng: latlng.lng()
+		
+	
+			GMaps.geocode({
+			  address: $('#postcode').val(),
+			  callback: function(results, status) {
+				if (status == 'OK') {
+		
+					var latlng = results[0].geometry.location;
+						map.setCenter(latlng.lat(), latlng.lng());
+						map.addMarker({
+						lat: latlng.lat(),
+						lng: latlng.lng()
+					});
+						map.drawOverlay({
+						lat: latlng.lat(),
+						lng: latlng.lng(),
+						content: '<div class="map-header"><h4><i class = "fa fa-lg fa-building"></i> Clinic</h4></div>'
+					});
+						$("#lng").val(latlng.lat());
+						$("#lat").val(latlng.lng());
+				}
+			  }
 			});
 			
-				map.drawOverlay({
-				lat: latlng.lat(),
-				lng: latlng.lng(),
-				content: '<div class="map-header"><h4><i class = "fa fa-lg fa-building"></i> Clinic</h4></div>'
-			});
-				
-				$("#lng").val(latlng.lat());
-				$("#lat").val(latlng.lng());
-
-		}
-	  }
+	});
+	
+	//This is inline as it needs to run after the above code
+	$('#request-stats').click(function(e){
+	
+		e.preventDefault();
+		var data = $("#mro-booking-stats").serializeArray();	
+		data.push({name: 'expert', value: $("#contact-list-expert :selected").attr("name")});
+		
+		$.post(
+		   'includes/get-mro-statistics.php',
+			data,
+			function(data){				
+				$("#success").html(data);	
+			}	
+		  );
+	
+	
 	});
 
-});
 
 
-</script></head>
+		//////////////////////
+
+    </script>
+

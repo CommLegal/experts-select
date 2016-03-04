@@ -1,7 +1,6 @@
-
-
 <?php 
 
+//echo $_POST['appID'];
 
 $appInfoCount = $conn->execute_sql("select", array("count(*) as client"), "e_appointments", "eap_id = ? and eap_cc_id = ?", array("i" => $_POST['appID'], "i2" => "0")); 
 
@@ -83,7 +82,9 @@ $venuePost = strtoupper($venueInfo[0]['v_postcode']);
 								<?php echo $venueInfo[0]['v_address3']; ?> <br /> 
                             	<?php echo $venueInfo[0]['v_city']; ?> <br /> 
                                 <?php echo $venuePost; ?>
+                                
                                 <input id = "venuepost" type = "hidden" value="<?php echo $venuePost; ?>" />
+                                
                                     <input type="hidden" id="venueLatitude" name="venueLatitude" value="<?php echo $venueInfo[0]['v_latitude']; ?>" />
                                     <input type="hidden" id="venueLongitude" name="venueLongitude" value="<?php echo $venueInfo[0]['v_longitude']; ?>" /> 
                             <!--

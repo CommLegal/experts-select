@@ -51,9 +51,7 @@
                         </select>
                         
                     <label>Radius:</label>
-                       <select name="search_radius" id="search_radius" class="venue-box">
-                          <?php for($i = 1; $i <= 50; $i++) { $i + 5; ?> <option value="<?php echo $i; ?>" onClick="loadList"><?php echo $i; ?></option> <?php } ?>
-                        </select>
+                        <input type="text" class="venue-box" name="search_radius" id="search_radius" value="" />
    
                     <label>Appointments After:</label>
                         <div class="input-group date">
@@ -79,7 +77,7 @@
 
                   </div><!-- Panel Close -->
                   
-                <div id="success"></div>
+                	<div id="success"></div>
                 </div>
                
                     <div class="panel panel-default"><!-- Panel Container -->

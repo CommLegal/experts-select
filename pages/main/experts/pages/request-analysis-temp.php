@@ -77,7 +77,7 @@ error_reporting(-1);
         </div>
 	</form>
    
-    <div class="panel panel-default"><!-- Panel Container -->
+    <div class="panel panel-default" style="display:none"><!-- Panel Container -->
                 <div class="panel-heading"><h4>Results</h4></div>
                 <div class="panel-body">
                     <div class = "col-md-5">
