@@ -9,7 +9,7 @@
             
             <div id="overlay-text">
             	
-            </div>
+            </div> 
             
             <div style="clear: both;"></div>
             
@@ -19,7 +19,7 @@
 
 	<div class="container main mb25">
         <div class="col-md-12 mb25">              
-        	<h3>Agreements with MROs</h3><div class="title-divider"></div>
+        	<h3 class="textshadow" >Agreements with MROs</h3><div class="title-divider"></div>
     	</div>  
 		<div class="row pt25">
 			<div class="col-lg-12"> 
@@ -44,47 +44,30 @@
                               <li><i class="fa-li fa fa-user-plus"></i> <p>Unblock the MRO.</p></li>
                             </ul>   
 						</div>
-                        <!--
+                        
                         <div class = "col-md-12">
                         	<button id = "add-agreement" class = "btn btn-default mt25 mb10">Create &nbsp;<i class = "fa fa-plus"></i></button>
                         </div> 
-                       	<div class = "agreement-box" style = "display:none">  
-                            <div class = "col-md-6">   
-                                <label>User:</label>
-                                <select name="" id="" class="form-control" required>
-                                    <option value="">Select an MRO</option>
-                                    <option value="1">Snoop Dogg Health LTD</option>
-                                    <option value="2">Aubrey Amputations Aid</option>
-                                    <option value="3">Morris' Mangled Meat Mincery</option>
-                                    <option value="4">J-Doggs Jammy-Dodger Juice-Dippers</option>
-                                </select>
+                       	<div class = "agreement-box">   
+                                <label>Organisation:</label>
+                                <select name="mo_id" id="mo_id" class="form-control" required></select>
                                 
-                                <label class="control-label">Info</label>
-                                <input disabled type="text"  class="form-control" id="" name="" value="Autofill" >
-                                <label class="control-label">Info</label>
-                                <input disabled type="text"  class="form-control" id="" name="" value="Autofill" >
-                                <label class="control-label">Info</label>
-                                <input disabled type="text"  class="form-control" id="" name="" value="Autofill" >
-                                <label class="control-label">Info</label>
-                                <input disabled type="text"  class="form-control" id="" name="" value="Autofill" >
-                            </div>     
-                            <div class = "col-md-6">
-                                <label class="control-label">Appointment Quota</label>
-                                <select name="" id="" class="form-control" >
-                                    <option value="">Appointments Per Month</option>
-                                    <option value="1">10</option>
-                                    <option value="2">20</option>
-                                </select>
-                                <label class="control-label">Price</label>
-                                <input type="number"  class="form-control" id="" name="" value="" required>                            
-                                <label class="control-label">Message</label>
-                                <textarea type="text"  rows = "4" class="form-control" id="" name="" value = "" required> Please accept my most gracious offerings</textarea>                           
-                            </div>
-                            <div class = "col-md-12">
-                                <button class = "btn btn-lg btn-success mt25">Send Request &nbsp;<i class = "fa fa-lg fa-arrow-right"></i></button>
+                                <label style="display:none" class="user-selection">Organisation Contact:</label>
+                                <select style="display:none" name="mro_id" id="mro_id" class="form-control user-selection" required></select>
+                            
+                            <form method="POST" id="expert-agreement-request">   
+                                <div id="mro-information">
+									
+                                </div>
+                                <div class = "col-md-12">
+                                <button id="agreementExpertSubmit" class = "btn btn-lg btn-success mt25">Send Request &nbsp;<i class = "fa fa-lg fa-arrow-right"></i></button>
+                            </form> 
+                            
+                            <div id="returnMessage"></div>
+                            
                             </div>
                         </div>
-                        -->
+                      
                         
 					</div>
 				</div>

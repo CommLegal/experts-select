@@ -84,8 +84,21 @@ class login_class {
 			
 		$loginCount = $conn->execute_sql("select", array('count(*) as loginCount', "ea_id"), "e_accounts", "ea_email=? and ea_password=? and ea_active = \"Y\"", array("s1" => $username, "s2" => $password));
 		
+		$resetCount = $conn->execute_sql("select", array('count(*) as resetCount', "ea_id"), "e_accounts", "ea_email=? and ea_recovery_code=? and ea_active = \"Y\"", array("s1" => $username, "s2" => $password));
+		
 		if($loginCount[0]['loginCount'] > 0) {
+			
 			$loginCount = $conn->execute_sql("select", array("ea_id", "ea_login_no"), "e_accounts", "ea_email=? and ea_password=? and ea_active = \"Y\"", array("s1" => $username, "s2" => $password));
+			
+			$conn->execute_sql("update", array('ea_login_no' => ($loginCount[0]['ea_login_no'] + 1), 'ea_last_login' => date('Y-m-d H:i:s')), "e_accounts", "ea_id=?", array("i" => $loginCount[0]['ea_id']));
+			$_SESSION['CME_USER'] = array("type" => "expert", "login_id" => $loginCount[0]['ea_id']);
+			return true;
+		}
+		
+		if($resetCount[0]['resetCount'] > 0) {
+			
+			$loginCount = $conn->execute_sql("select", array("ea_id", "ea_login_no"), "e_accounts", "ea_email=? and ea_recovery_code=? and ea_active = \"Y\"", array("s1" => $username, "s2" => $password));
+			
 			$conn->execute_sql("update", array('ea_login_no' => ($loginCount[0]['ea_login_no'] + 1), 'ea_last_login' => date('Y-m-d H:i:s')), "e_accounts", "ea_id=?", array("i" => $loginCount[0]['ea_id']));
 			$_SESSION['CME_USER'] = array("type" => "expert", "login_id" => $loginCount[0]['ea_id']);
 			return true;
@@ -93,7 +106,11 @@ class login_class {
 		
 		//$loginCount = $conn->execute_sql("select", array('count(*) as loginCount', "m_id"), "m_accounts", "ma_id=? and ma_password=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
 		$loginCount = $conn->execute_sql("select", array('count(*) as loginCount', "ma_id"), "m_accounts", "ma_email=? and ma_password=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
+		
+		$resetCount = $conn->execute_sql("select", array('count(*) as resetCount', "ma_id"), "m_accounts", "ma_email=? and ma_recovery_code=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
+		
 		if($loginCount[0]['loginCount'] > 0) {
+			
 			//$loginCount = $conn->execute_sql("select", array('ma_id'), $table, "ma_id=? and ma_activation_code=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
 			$loginCount = $conn->execute_sql("select", array("ma_id", "ma_login_no"), "m_accounts", "ma_email=? and ma_password=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
 			$conn->execute_sql("update", array('ma_login_no' => ($loginCount[0]['ma_login_no'] + 1), 'ma_last_login' => date('Y-m-d H:i:s')), "m_accounts", "ma_id=?", array("i" => $loginCount[0]['ma_id']));
@@ -101,8 +118,19 @@ class login_class {
 			return true;
 		}
 		
+		if($resetCount[0]['resetCount'] > 0) {
+			
+			$loginCount = $conn->execute_sql("select", array("ma_id", "ma_login_no"), "m_accounts", "ma_email=? and ma_recovery_code=? and ma_active = \"Y\"", array("s1" => $username, "s2" => $password));
+			
+			$conn->execute_sql("update", array('ma_login_no' => ($loginCount[0]['ma_login_no'] + 1), 'ma_last_login' => date('Y-m-d H:i:s')), "m_accounts", "ma_id=?", array("i" => $loginCount[0]['ma_id']));
+			$_SESSION['CME_USER'] =  array("type" => "mro", "login_id" => $loginCount[0]['ma_id']);
+			return true;
+		}
+		
 		$loginCount = $conn->execute_sql("select", array('count(*) as loginCount'), "m_logins", "ml_id=? and ml_password=? and ml_active = \"Y\"", array("s1" => $username, "s2" => $password));
+		
 		if($loginCount[0]['loginCount'] > 0) {
+			
 			$loginCount = $conn->execute_sql("select", array('ml_id'), $table, "ml_id=? and ml_activation_code=? and ml_active = \"Y\"", array("s1" => $username, "s2" => $password));
 			$conn->execute_sql("update", array('ml_login_no' => ($loginCount[0]['ml_login_no'] + 1), 'ml_last_login' => date('Y-m-d H:i:s')), $table, "ml_id=?", array("i" => $loginCount[0]['ml_id']));
 			$_SESSION['CME_USER'] =  array("type" => "mro_user", "login_id" => $loginCount[0]['ml_id']);

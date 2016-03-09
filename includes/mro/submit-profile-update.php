@@ -5,8 +5,39 @@ require("../mysqlwrapper_class.php");
 $conn = new mysqlwrapper_class;
 //END DB CONNECTION
 
+$newPassword = $_POST['ma_password'];
+
+$newPassword = md5(_PWD_SALT . $newPassword . _PWD_SALT);
+
 
 if($_POST['mroPermissions'] < "3" ) { 
+
+	if($_POST['ma_password'] == NULL) { 
+	
+	$updateDetails = $conn->execute_sql("update", array("ma_s_id" => $_POST['ma_s_id'],
+														   "ma_forename" => $_POST['ma_forename'],
+														   "ma_surname" => $_POST['ma_surname'],
+														   "ma_telephone" => $_POST['ma_telephone'],
+														   "ma_mobile" => $_POST['ma_mobile'],
+														   "ma_email" => $_POST['ma_email']), "m_accounts", "ma_id=?", array("i" => $_POST['usersId']));
+	
+	} else {
+	
+
+	$updateDetails = $conn->execute_sql("update", array("ma_s_id" => $_POST['ma_s_id'],
+														   "ma_forename" => $_POST['ma_forename'],
+														   "ma_surname" => $_POST['ma_surname'],
+														   "ma_telephone" => $_POST['ma_telephone'],
+														   "ma_mobile" => $_POST['ma_mobile'],
+														   "ma_email" => $_POST['ma_email'],
+														   "ma_password" => $newPassword), "m_accounts", "ma_id=?", array("i" => $_POST['usersId']));
+	}
+	
+} else { 
+
+	$getCompanyNo = $conn->execute_sql("select", array("ma_name"), "m_accounts", "ma_id=?", array("i" => $_SESSION['CME_USER']['login_id']));
+	
+	if($_POST['ma_password'] == NULL) { 
 
 	$updateDetails = $conn->execute_sql("update", array("ma_s_id" => $_POST['ma_s_id'],
 														   "ma_forename" => $_POST['ma_forename'],
@@ -15,16 +46,16 @@ if($_POST['mroPermissions'] < "3" ) {
 														   "ma_mobile" => $_POST['ma_mobile'],
 														   "ma_email" => $_POST['ma_email']), "m_accounts", "ma_id=?", array("i" => $_POST['usersId']));
 	
-} else { 
-
-	$getCompanyNo = $conn->execute_sql("select", array("ma_name"), "m_accounts", "ma_id=?", array("i" => $_SESSION['CME_USER']['login_id']));
-
+	} else {
+		
 	$updateDetails = $conn->execute_sql("update", array("ma_s_id" => $_POST['ma_s_id'],
 														   "ma_forename" => $_POST['ma_forename'],
 														   "ma_surname" => $_POST['ma_surname'],
 														   "ma_telephone" => $_POST['ma_telephone'],
 														   "ma_mobile" => $_POST['ma_mobile'],
-														   "ma_email" => $_POST['ma_email']), "m_accounts", "ma_id=?", array("i" => $_POST['usersId']));
+														   "ma_email" => $_POST['ma_email'],
+														   "ma_password" => $newPassword), "m_accounts", "ma_id=?", array("i" => $_POST['usersId']));		
+	}
 	
 	$updateOrgDetails = $conn->execute_sql("update", array("mo_address_1" => $_POST['ma_address1'],
 														   "mo_address_2" => $_POST['ma_address2'],

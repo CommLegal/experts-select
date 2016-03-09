@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 
@@ -25,8 +23,8 @@ if($_SESSION['CME_USER']['type'] == "mro") {
 	
 
 if($messageType == 5) {
-	
-	//var_dump($selectMROUpdate[0]['mu_content']);
+		
+	if($selectMROUpdate[0]['mu_able_confirm'] == 1) {
 
 	$string = "
 		
@@ -77,7 +75,63 @@ if($messageType == 5) {
 		
 		<small>Sent from <b>" . $selectMROUpdate[0]['ea_forename'] . " " . $selectMROUpdate[0]['ea_surname'] . "</b> on " . $dateSent . " at <b>" . $timeSent . " . </b></small> </br> <div id=\"archiveSuccess\"></div>" ;
 
-	}
+	} else {
+		
+		$string = "
+		
+		<!--<button type=\"button\" class=\"btn btn-default pull-right\" id=\"mroDeleteMessage\" name=\"mroDeleteMessage\">Delete &nbsp;<i class=\"fa fa-sm fa-trash\"></i></button>-->
+		<button type=\"button\" class=\"btn btn-default\"  id=\"archiveUpdate\" name=\"archiveUpdate\">Archive &nbsp;<i class=\"fa fa-sm fa-archive\"></i></button>
+		
+		<div class=\"btn-group btn-group-sm\" role=\"group\">
+		  <form id=\"mroArchiveMessage\" name=\"mroArchiveMessage\" >
+		  	<input type=\"hidden\" name=\"messageID\" id=\"messageID\" value=" . $messageId . ">
+		  	<!--<button id = \"reply-btn\" type=\"button\" class=\"btn btn-default\">Reply &nbsp;<i class=\"fa fa-sm fa-reply\"></i></button>-->
+			
+			
+		  </form>
+		</div>
+		
+		<div id = \"reply-box\" style = \"display:none\">
+			<label class=\"control-label\">Reply:</label>
+			<textarea class = \"form-control\" rows = \"5\"> </textarea> <br />
+			<button id = \"confirm-reply\" type=\"button\" class=\"mt1 btn btn-success \">Send &nbsp;<i class=\"fa fa-check\"></i></button>
+			<button id = \"cancel-reply\" type=\"button\" class=\"mt1 btn btn-danger \">Cancel &nbsp;<i class=\"fa fa-times\"></i></button>
+		</div>
+		
+		<hr />
+		
+		<h4>" . $selectMROUpdate[0]['mu_subject'] . "</h4>
+		
+		<p>" . $selectMROUpdate[0]['mu_content'] . "</p>
+		
+		
+		<form id=\"confirmAgreementUpdate\" method=\"post\" action=\"\" >
+		
+			<input type=\"hidden\" name=\"agreementID\" value=\"" . $selectMROUpdate[0]['mu_oa_id'] . "\">
+			<input type=\"hidden\" name=\"updateID\" value=\"" . $messageId . "\">
+			
+			<div id = \"confirmations\" class = \"\">
+				<button id=\"submitConfirmation\" type=\"button\" class=\"btn btn-success btn-sm\">Accept &nbsp;<i class=\"fa fa-sm fa-check\"></i></button>
+				<button id=\"rejection\" type=\"button\" class=\"btn btn-danger btn-sm\">Reject &nbsp;<i class=\"fa fa-sm fa-times\"></i></button>
+			</div>
+		
+			<div id=\"success\"></div>
+		
+		</form>
+		
+		<div id = \"agreement-reject-reason\" style=\"display:none\">
+			<label class=\"control-label\">Reason for Rejection:</label>
+			<textarea class = \"form-control\" rows = \"5\"> </textarea> <br />
+			
+			<button id = \"confirm-reject\" type=\"button\" class=\"col-md-6 mt10 btn btn-success \">Confirm Rejection &nbsp;<i class=\"fa fa-check\"></i></button>
+			<button id = \"cancel-reject\" type=\"button\" class=\"col-md-6 mt10 btn btn-danger \">Cancel Rejection &nbsp;<i class=\"fa fa-times\"></i></button>
+		</div>
+		
+		<hr />
+		
+		<small>Sent from <b>" . $selectMROUpdate[0]['ea_forename'] . " " . $selectMROUpdate[0]['ea_surname'] . "</b> on " . $dateSent . " at <b>" . $timeSent . " . </b></small> </br> <div id=\"archiveSuccess\"></div>" ;
+		
+	} } 
 
 	elseif($messageType == 6) {
 
@@ -194,6 +248,8 @@ if($messageType == 5) {
 
 if($_SESSION['CME_USER']['type'] == "expert") { 
 
+	$selectMROUpdate = $conn->execute_sql("select", array("*"), "organisation_agreements", "oa_confirmed=? AND oa_ma_name=? AND oa_ea_name=?", array("i" => $_POST['data'] ));
+
 	$selectExpertUpdate = $conn->execute_sql("select", array("*"), "e_updates JOIN e_accounts ON eu_recipient_id = ea_id JOIN m_accounts ON eu_sender_id = ma_id", "eu_id=?", array("i" => $_POST['data'] ));
 	
 	$messageId = $selectExpertUpdate[0]['eu_id'];
@@ -223,7 +279,7 @@ if($messageType == 5) {
 		</div>
 		
 		<hr />
-		
+
 		
 		<div id = \"reply-box\" style = \"display:none\">
 			<label class=\"control-label\">Reply:</label>

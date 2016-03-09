@@ -141,7 +141,7 @@ error_reporting(-1);
 
 <!-- End container -->    
 </div>
-<script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+
 <script type="text/javascript" src="<?php echo _ROOT ?>/js/gmaps.js"></script>
 <script>
 		

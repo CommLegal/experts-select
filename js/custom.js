@@ -1,8 +1,12 @@
 $(document).ready(function() {
 	
 
-//BOOK STATS
 
+//BOOK STATS 2
+
+
+
+//BOOK STATS
 	$('#showExpert').click(function(){
 		$(this).html("<b>Expert</b>");
 		$('#showPostcode').html("Postcode");
@@ -328,6 +332,21 @@ $('#addVenueFormSubmit').click(function(e){
 		}
 	)
 	
+	$(document).ready(function(e){						  
+		 
+		 var maMo = document.getElementById('#mo_id');
+		 
+			 //CHECK DIRECTORY LOCATION BY REDIRECTING
+			 
+			 $("#mo_id").load("includes/get-mo-db.php",function( response, status, xhr ) {
+					if ( status == "error" ) {
+						var msg = "Sorry but there was an error: ";
+						$( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+					}
+				});
+		}
+	)
+	
 	
 	$(document).ready(function(e){						  
 		 
@@ -484,6 +503,12 @@ $('#addVenueFormSubmit').click(function(e){
 	$("#show-expert-apps").hide();
 	
 	$('#bookNewPatient .input-group.date').datepicker({
+		todayBtn: "linked",
+		format: 'dd-mm-yyyy',
+		todayHighlight: true
+	});
+	
+	$('#mro-booking-stats .input-group.date').datepicker({
 		todayBtn: "linked",
 		format: 'dd-mm-yyyy',
 		todayHighlight: true
@@ -1003,6 +1028,48 @@ $('#addVenueFormSubmit').click(function(e){
 			  );
 		});
 		
+		$('#mro_id').change(function(e){
+			e.preventDefault();			
+			
+			var data = $("#mro_id").serializeArray();
+			data.push({name: 'mro_id', value: $("#mro_id :selected").attr("value")});	
+			
+			$.post(
+			   'includes/experts/get-mro-information.php',
+				data,
+				function(data){
+				  //alert(data);
+				  $('#mro-information').empty();
+				  $("#mro-information").html(data);
+				  //$("#successBlock").show();
+				}
+				
+				
+				
+			  );
+		});
+		
+		$('#mo_id').change(function(e){
+			e.preventDefault();			
+			
+			var data = $("#mo_id").serializeArray();
+			data.push({name: 'mo_id', value: $("#mo_id :selected").attr("value")});	
+			
+			$.post(
+			   'includes/filter-mro-by-mo.php',
+				data,
+				function(data){
+				  $(".user-selection").show();
+				  $('#mro_id').empty();
+				  $("#mro_id").html(data);
+				}
+				
+				
+				
+			  );
+		});
+		
+		
 		$('#agreementSubmit').click(function(e){
 			e.preventDefault();			
 			
@@ -1020,6 +1087,21 @@ $('#addVenueFormSubmit').click(function(e){
 				}
 			  );
 			}
+		});
+		
+		$('#agreementExpertSubmit').click(function(e){
+			e.preventDefault();			
+			
+			var data = $("#expert-agreement-request").serializeArray();
+			
+			$.post(
+			   'includes/experts/submit-agreement-request.php',
+				data,
+				function(data){
+				 //alert("true");
+				 $("#returnMessage").html(data);
+				}
+			  );
 		});
 		
 		$('.accordion-main .accordion:first-child').addClass('current').children('.accordion-content').css('display', 'block');
@@ -1259,25 +1341,6 @@ $('#addVenueFormSubmit').click(function(e){
 			}	
 		  );
 	});
-	
-	
-	$('#request-stats').click(function(e){
-
-		e.preventDefault();
-		var data = $("#mro-booking-stats").serializeArray();	
-		data.push({name: 'expert', value: $("#contact-list-expert :selected").attr("name")});
-		
-		$.post(
-		   'includes/get-mro-statistics.php',
-			data,
-			function(data){				
-				$("#success").html(data);	
-			}	
-		  );
-
-	});
-
-
 
 });
 	
@@ -1290,6 +1353,19 @@ $('#addVenueFormSubmit').click(function(e){
 			data,
 			function(data){				
 				$("#app-times").html(data);				
+			}	
+		  );
+	});
+	
+	$('#submitPassChange').click(function(e){
+		e.preventDefault();
+		
+		var data = $("#forgotPassForm").serializeArray();	
+		$.post(
+		   'includes/forgot_pass_submit.php',
+			data,
+			function(data){				
+				$("#success").html(data);				
 			}	
 		  );
 	});

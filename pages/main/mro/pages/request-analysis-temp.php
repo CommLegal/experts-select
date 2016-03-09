@@ -39,7 +39,7 @@
 
 	<div class= "container">   
 		<div class="col-md-12">   
-			<h3>Booking Statistics</h3><div class="title-divider"></div>
+			<h3 class="textshadow" >Booking Statistics</h3><div class="title-divider"></div>
             <div class = "mt10 col-md-12 alert alert-info"><i class = "fa fa-lg fa-info"></i> &nbsp; Please note, this page works beautifully despite testing.</div>
 		</div> 
 		
@@ -169,7 +169,7 @@
 
                    
 		<div class = "col-md-12">
-               
+               <div class = "col-md-12">
                 <label>Search by:</label>	
                 
                 <span id = "showExpert" class = "btn btn-default"><b>Expert</b></span>
@@ -202,7 +202,7 @@
                                     <select id="contact-list-expert" class="form-control" name="expert" style="">
                                     	<option>Select The Expert</option>
                                     </select>
-                                </span>
+                                </span> 
                                 
                         		<span class = "postcode" style = "display:none">
                                 	<label>Postcode:</label>
@@ -211,15 +211,17 @@
                                 	<input name="radius" id="radius" class="form-control" type="text" autocomplete = "off" placeholder="">
                                 </span>
                                 
-                                <input id = "request-stats" name = "request-stats" type = "submit" class = "mb25 <?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /> 
+
                                 <input type = "hidden" name = "lng" id = "lng" />
                                 <input  type = "hidden" name = "lat" id = "lat" />
                                 
                                 
                         </div><!-- End of right section -->
+                        <div class = "col-md-12 mb25"><input id = "request-stats" name = "request-stats" type = "submit" class = "<?php echo $btncolor; ?> mt25 pull-right" value="Request Analysis" /></div>
                         
+                        </div>
                         <div class = "mt25" id="success"></div>
-        
+        			
                </div>    
 
 
@@ -246,7 +248,7 @@
 		</div>
 
 			
-
+<!--¦-->
 	</div><!-- End container -->    
 </body>
 

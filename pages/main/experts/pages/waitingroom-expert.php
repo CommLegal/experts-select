@@ -28,7 +28,7 @@
 <div class= "container">
             
     <div class="col-md-12 mb10">              
-        <h3>Waiting Room</h3><div class="title-divider"></div>
+        <h3 class="textshadow" >Waiting Room</h3><div class="title-divider"></div>
     </div> 
             
             
@@ -106,10 +106,7 @@
 </div></div>
 	
 <!-- Container Close -->
-						 
- 
 
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script src="<?php echo _ROOT ?>/js/gmaps.js"></script>
 <script src="<?php echo _ROOT ?>/js/modal.js"></script>
 

@@ -1,12 +1,7 @@
-
-
-
-
 <div class = "container main mb50 reportbuilder">
-
     		
             <div class="col-md-12 mb10">              
-                <h3>Medical Report Generator</h3><div class="title-divider"></div>
+                <h3 class="textshadow" >Medical Report Generator</h3><div class="title-divider"></div>
             </div> 
             <form id = "report-form" target = "_blank" action="./pages/main/experts/pages/reportbuilder.php" method="post">
             
@@ -15,9 +10,9 @@
             <input name = "userID" id = "userID" type = "hidden" value="<?php echo $userID ?>" />
             
             <div class = "row">
-                <div class = "col-md-12 mt10 mb25">
-                	<p>This form will generate a Medical Report. A copy of the form will be made once you submit the details. Please make sure
-                    you have filled in the correct information before submitting. Some details may already be filled in but can be amended if you wish.</p>
+                <div class = "alert alert-info col-md-12 mt10 mb25">
+                	<p><i class = "fa fa-lg fa-info"></i> &nbsp;The report builder will allow you to make detailed reports. 
+                    If you need additional boxes you can create them with the 'Add Text Box' button at the top of the section.</p>
                 </div>
                 <div class="col-md-12 mb10 green topradius pq textwhite"><h4>Section A - Claimant Details</h4></div>
 
@@ -25,12 +20,13 @@
                     <label class="control-label">Claimants Full Name:</label>
                     <input class="form-control" name="fullName"  id="fullName" type="text" value="" />
                     <label>Date of Birth:</label>
-                    <div class="input-group date">
-                        <input class="form-control" id="date-picker-ven" name="date-picker-DOB" value="<?php echo date("d-m-Y");?>" type="text">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-                    </div>
+                        <div class="input-group date">
+                            <input class="form-control" id="date-picker-ven" name="date-picker-DOB" value="<?php echo date("d-m-Y");?>" type="text">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                        </div>
                     <label class="control-label">Occupation:</label>
                     <input class="form-control" name="occupation"  id="occupation" type="text" value="" />
+                    
 					<label class="control-label">Photo ID:</label>
                     <select class="form-control" id="hasID">
                       <option value="No">No</option>
@@ -70,7 +66,7 @@
                       <option value="Yes">Yes</option>
                       <option value="No">No</option>
                     </select>
-<label>Date of Accident:</label>
+					<label>Date of Accident:</label>
                     <div class="input-group date">
                         <input  class="form-control" id="date-picker-ven" name="date-picker-accident" value="<?php echo date("d-m-Y");?>" type="text">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
@@ -88,10 +84,6 @@
 
             </div>
 
-            
-           
-            
-            
             <div class = "row mt25">
                 <div class="col-md-12">              
                     <div class="col-md-12 mb10 green topradius pq textwhite"><h4>Section B - History</h4></div>
@@ -101,7 +93,19 @@
                 	<p>Please give a brief description of the accident, immediate symptoms and treatment. Detail any improvement 
                     or deterioration of symptons including dates where possible. Also include a recovery/expected recovery date or period. </p>
                 </div>
+
+                <!-- ADD BOX 1 -->
+               <div class = "col-md-12">
+                    <a href="javascript:void(0);" class="btn btn-default btn-sm add_button2" title="Add Text Box">
+                        Add Text Box &nbsp;<span class="fa-stack fa">
+                          <i class="fa fa-square-o fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </div> 
                 
+                
+
                 <div class = "form-group col-md-6">
                     <label class="control-label">The Accident:</label>
                     <textarea class="form-control" name="accidentDetails" id="accidentDetails" rows = "3" type="text" value="" ></textarea>
@@ -137,14 +141,25 @@
                     <textarea class="form-control" name="position" id="position" rows = "3" type="text" value="" ></textarea>
                 </div>
                 
-			</div>
-            
+                <div class="mt25 field_wrapper2">
+                
+			</div></div>
 
             <div class = "row mt25">
                 <div class="col-md-12">              
                     <div class="col-md-12 mb10 green topradius pq textwhite"><h4>Section C</h4></div>
                 </div>
-                
+
+                <!-- ADD BOX 2 -->
+               <div class = "col-md-12">
+                    <a href="javascript:void(0);" class="btn btn-default btn-sm add_button" title="Add Text Box">
+                        Add Text Box &nbsp;<span class="fa-stack fa">
+                          <i class="fa fa-square-o fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </div> 
+
                 <div class = "col-md-12 mt12">
                 <label class="control-label">Employment & Education Position:</label>
                 </div>
@@ -169,6 +184,10 @@
                 <div class = "well col-md-6">
                     <p>Please state the impact on other activities such as hobbies, recreations, housework, gardening, travelling, holidays, shopping and sex life. Give details as to the claimants general state of work.</p>
                 </div>
+                
+                <div class="field_wrapper col-md-12"></div>
+                
+                
 
             </div>
             
@@ -177,8 +196,19 @@
 					<div class="col-md-12 mb10 green topradius pq textwhite"> <h4>Section D</h4></div>
                 </div>
                 
+                <!-- ADD BOX 1 -->
+               <div class = "col-md-12">
+                    <a href="javascript:void(0);" class="btn btn-default btn-sm add_button3" title="Add Text Box">
+                        Add Text Box &nbsp;<span class="fa-stack fa">
+                          <i class="fa fa-square-o fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </div> 
+                
+                
                 <div class = "col-md-12 mt12">
-                <label class="control-label">Past Medical History:</label>
+                	<label class="control-label">Past Medical History:</label>
                 	<p>Please refer to any relevant history based on examination. </p>
                 </div>
                 
@@ -191,7 +221,7 @@
                 </div>
                 
                 <div class = "col-md-12 mt12">
-                <label class="control-label">On Examination:</label>
+                	<label class="control-label">On Examination:</label>
                 </div>
                 
                 <div class = "form-group col-md-6">
@@ -202,7 +232,6 @@
                 	<div class = "well"><p>Please state your findings on examination including details of any restrictions arising from the accident. Mention dominant hand, general appearance, mental health, injuries/wounds/scars etc, neck examination, upper limb examination, back examination, lower limbs examination.</p></div>
                 </div>
                 
-				
                 <div class = "col-md-12 mt12">
                 <label class="control-label">Diagnosis Opinion and Prognosis:</label>
                 </div>
@@ -212,10 +241,13 @@
                 </div>
                 
                 <div class = "col-md-6">
-                	<div class = "well"><p>Please state your overall opinion of the clients position to date dealing with causation and including a prognosis if possible. Refer to the 
+                <div class = "well"><p>Please state your overall opinion of the clients position to date dealing with causation and including a prognosis if possible. Refer to the 
                     the claimants employment/education position and any impact to the claimants home life. Please detail whether you consider that the claimant 
-                    has/will make a recovery and to what extent and when this will be reached. Also include if the claimant has any further needs including treatments. Mention opinion, job prospects, 		prognosis, further report etc.</p></div>
+                    has/will make a recovery and to what extent and when this will be reached. Also include if the claimant has any further needs including treatments. 
+                    Mention opinion, job prospects, prognosis, further report etc.</p></div>
                 </div>
+                
+                <div class="field_wrapper3 col-md-12"></div>
                 
             </div>
 
@@ -247,22 +279,30 @@
                 	<label class="seatbelt_title control-label">State if the claiments injuries would have been prevented or less severe:</label>
                     <textarea placeholder = "" class="form-control" name="seatbelt_details" id="seatbelt_details" rows = "5" type="text" value="" ></textarea>
 				</div>
-                
-                
 			</div>  
             
 			<div class = "row mt25">
                 <div class="col-md-12">    
                     <div class="col-md-12 mb10 green topradius pq textwhite"> <h4>Section F</h4></div>                   
                 </div>
-            
-                <div class = "col-md-12 mt12">
-                	<label class="control-label">Further Treatment and Rehabilitation:</label>
-                </div>
                 
-                <div class = "form-group col-md-6">
+                <!-- ADD BOX F -->
+               <div class = "col-md-12">
+                    <a href="javascript:void(0);" class="btn btn-sm btn-default add_button4" title="Add Text Box">
+                        Add Text Box &nbsp;<span class="fa-stack fa-sm">
+                          <i class="fa fa-square-o fa-stack-2x"></i>
+                          <i class="fa fa-plus fa-stack-1x"></i>
+                        </span>
+                    </a>
+                </div> 
+            
+                <div class = "col-md-6 mt12">
+                	<label class="control-label">Further Treatment and Rehabilitation:</label>
                     <textarea placeholder = "" class="form-control" name="treatment3" id="treatment3" rows = "6" type="text" value="" ></textarea>
                 </div>
+                
+                <div class="field_wrapper4 col-md-12"></div>
+                
 			</div>  			
 
 			<div class = "row mt25">
@@ -271,7 +311,7 @@
                 </div>
                 
                 <div class = "col-md-4 mt12">                    
-                <label class="control-label">Contact Address:</label>
+               		<label class="control-label">Contact Address:</label>
                     <input placeholder = "Line 1" type="text" name="contact_address1" class="form-control" id="contact_address1" value="" >
                     <input placeholder = "Line 2" type="text" name="contact_address2" class="mt3 form-control" id="contact_address2" value="" >
                     <input placeholder = "Line 3" type="text" name="contact_address3" class="mt3 form-control" id="contact_address3" value="" >
@@ -290,28 +330,127 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span></input>
                     </div>
                 </div>
+                
                 <div class = "col-md-4 well">
                 
-                <p>I confirm that I have made clear which facts and matters referred to in this report are within my own knowledge and which are not. 
-                Those that are within my own knowledge I confirm to be true. The opinions I have expressed represent my true and complete professional 
-                opinion on the matters to which they refer.</p>
-						
-                <div class="checkbox">
-                  <label><input type="checkbox" value="" name = "agree" id = "agree">I Agree</label>
-                </div>
+                    <p>I confirm that I have made clear which facts and matters referred to in this report are within my own knowledge and which are not. 
+                    Those that are within my own knowledge I confirm to be true. The opinions I have expressed represent my true and complete professional 
+                    opinion on the matters to which they refer.</p>
+                            
+                    <div class="checkbox">
+                      <label><input type="checkbox" value="" name = "agree" id = "agree" />I Agree</label>
+                    </div>
+
+                    <input value = "Generate PDF" disabled id = "makePDF" style = "" class = "pull-right btn btn-lg btn-success" type = "submit" />
+                    
+    			
                 
-                <button id = "makePDF" disabled style = "margin-top:-30px;" class = "pull-right btn btn-lg btn-success" type = "submit">Create PDF &nbsp;<i class = "fa fa-file-pdf-o"></i></button>
-
-
 				</div>
 
 			</div>  
-
-         </form> 
+</form> 
     </div>
 </div>
+<script type="text/javascript">
+var removeBtn = '<a href="javascript:void(0);" class="mb25 remove_button" title="Remove field">(Remove)</a>';
 
-<script>
+///// SECTION B
+	$(document).ready(function(){
+		var x = 0;
+		var maxField = 10; //Input fields increment limitation
+		var addButton = $('.add_button2'); //Add button selector
+		var wrapper = $('.field_wrapper2'); //Input field wrapper
+		
+		var x = 2; //Initial field counter is 1
+		$(addButton).click(function(){ //Once add button is clicked
+			if(x < maxField){ //Check maximum number of input fields
+			var fieldHTML = '<div><div class = "form-group col-md-6"><label class="control-label">Additional Info:</label>' + removeBtn + '<textarea class="form-control" name="b_additionals[]" id="b_additionals[]" rows = "3" type="text" value="" ></textarea></div>'; 
+				x++; //Increment field counter
+				$(wrapper).append(fieldHTML); // Add field html
+			}
+		});
+		$(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+			e.preventDefault();
+			$(this).parent('div').remove(); //Remove field html
+			x--; //Decrement field counter
+		});
+	});
+
+
+///// SECTION C
+	$(document).ready(function(){
+		var x = 0;
+		var maxField = 10; //Input fields increment limitation
+		var addButton = $('.add_button'); //Add button selector
+		var wrapper = $('.field_wrapper'); //Input field wrapper
+		
+		var x = 2; //Initial field counter is 1
+		$(addButton).click(function(){ //Once add button is clicked
+			if(x < maxField){ //Check maximum number of input fields
+			var fieldHTML = '<div><label class="controls">Additional Info:</label>' + removeBtn +'<textarea rows="5" class = "form-control col-md-6 mb10" type="text" name = "c_additionals[]" id="c_additionals[]" value=""></textarea></div>'; 
+			//New input field html 
+				x++; //Increment field counter
+				$(wrapper).append(fieldHTML); // Add field html
+			}
+		});
+		$(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+			e.preventDefault();
+			$(this).parent('div').remove(); //Remove field html
+			x--; //Decrement field counter
+		});
+	});
+
+
+///// SECTION D
+	$(document).ready(function(){
+		var x = 0;
+		var maxField = 10; //Input fields increment limitation
+		var addButton = $('.add_button3'); //Add button selector
+		var wrapper = $('.field_wrapper3'); //Input field wrapper
+		
+		var x = 2; //Initial field counter is 1
+		$(addButton).click(function(){ //Once add button is clicked
+			if(x < maxField){ //Check maximum number of input fields
+			var fieldHTML = '<div><label class="controls">Additional Info:</label>' + removeBtn +'<textarea rows="5" class = "form-control col-md-6 mb10" type="text" name = "d_additionals[]" id="d_additionals[]" value=""></textarea></div>'; 
+			//New input field html 
+				x++; //Increment field counter
+				$(wrapper).append(fieldHTML); // Add field html
+			}
+		});
+		$(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+			e.preventDefault();
+			$(this).parent('div').remove(); //Remove field html
+			x--; //Decrement field counter
+		});
+	});
+	
+
+
+///// SECTION F
+	$(document).ready(function(){
+		var x = 0;
+		var maxField = 10; //Input fields increment limitation
+		var addButton = $('.add_button4'); //Add button selector
+		var wrapper = $('.field_wrapper4'); //Input field wrapper
+		
+		var x = 2; //Initial field counter is 1
+		$(addButton).click(function(){ //Once add button is clicked
+			if(x < maxField){ //Check maximum number of input fields
+			var fieldHTML = '<div><label class="controls">Additional Info:</label>' + removeBtn +'<textarea rows="6" class = "form-control col-md-6 mb10" type="text" name = "f_additionals[]" id="f_additionals[]" value=""></textarea></div>'; 
+			//New input field html 
+				x++; //Increment field counter
+				$(wrapper).append(fieldHTML); // Add field html
+			}
+		});
+		$(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+			e.preventDefault();
+			$(this).parent('div').remove(); //Remove field html
+			x--; //Decrement field counter
+		});
+	});
+
+
+//////////
  $('#agree').click(function() {
         if ($(this).is(':checked')) {
             $('#makePDF').removeAttr('disabled');
@@ -319,6 +458,8 @@
             $('#makePDF').attr('disabled', 'disabled');
         }
     });
+ 
+ 
 </script>
 
 

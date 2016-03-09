@@ -27,11 +27,12 @@
     <div class="messages"></div>
    <form action="" method="post" enctype="multipart/form-data" name="expert-add-app" id="expert-add-app" role="form">	
             <h3 class="">Add Appointments</h3>	
+            <div class = "alert alert-info"><p><i class = "fa fa-lg fa-info"></i> &nbsp; <span id = "helper">Hover over a section for information.</span></p></div>
             <div class="title-divider"></div>		  			
             <div class="form-group">
             
-                <div class="col-md-3">
-                    <div class="col-lg-12">
+                <div class="col-md-3" id = "appDate">
+                    <div class="col-lg-12" >
                         <h4><span class="glyphicon glyphicon-calendar"></span>&nbsp;Choose Date</h4> 
                         <p class="addappbox">Click below to select a date. Please be sure to check this date is suitable in advance.</p>
                         <label for"add-app-start">Date</label>
@@ -42,7 +43,7 @@
                     </div>
                 </div>
 
-				<div class = "col-md-3">
+				<div class = "col-md-3" id = "MRO">
                         <h4><i class="fa fa-user-md"></i>&nbsp;Select your MRO</h4>
                         <p class="addappbox">Add your chosen MRO.</p>
                         <label for"add-app-start">MRO</label>
@@ -52,7 +53,7 @@
                     </div>
 
 
-                <div class="col-md-3">
+                <div class="col-md-3" id = "venue">
                     <div class="col-lg-12">
                         <h4><i class="fa fa-map-pin"></i>&nbsp;Select your venue</h4>
                          <p class="addappbox">Add previously used venues or search for venues used by other experts. Alternatively create a new one.</p>
@@ -68,7 +69,7 @@
                 
   					
                 
-                <div class="col-md-3">
+                <div class="col-md-3" id = "time">
                     <div class="col-lg-12">
                         <h4><span class="glyphicon glyphicon-time"></span>&nbsp;Appointment Time(s)</h4>
                          <p class="addappbox">Select a timeframe and you will be presented with slots between those intervals to select from.</p>
@@ -132,24 +133,42 @@
 </script>
 
 <script>
-	$(".show-overlay").click(function(e) {
-							$("#overlay").show();
-							$("#overlay #overlay-content #overlay-title").text($(this).attr("title"));
-							var pageValues = $(this).attr("id").split(":");
-							
-							var callPage = pageValues[0];
-							var callValues = pageValues[1];
-							
-							$.post( "pages/popup-call.php", { 
-											callPage: callPage,   
-											callValues: callValues
-							})
-							.done(function( data ) {
-											$("#overlay #overlay-content #overlay-text").html(data);
-							});
-			});
-			$("#close").click(function(e) {
-						$("#overlay").hide();
-							   
+
+	$("#appDate").hover(function() {
+		$("#helper").html("Start by choosing a date for your appointment. Make sure it's suitable!");
 	});
+	$("#MRO").hover(function() {
+		$("#helper").html("Choose an organization to book your appointment with.");
+	});
+	$("#venue").hover(function() {
+		$("#helper").html("Select a location for your appointment. You can create your own using the 'Add Venue' button. ");
+	});
+	$("#time").hover(function() {
+		$("#helper").html("Select a time slot, this will be your appointment duration. Then choose a start/end time and click 'Generate'.");
+	});
+	$(".select-app-slots").hover(function() {
+		$("#helper").html("Select the timeslots within the hour here. Click 'Submit' to book the appointment.");
+	});
+	
+	$(".show-overlay").click(function(e) {
+		$("#overlay").show();
+		$("#overlay #overlay-content #overlay-title").text($(this).attr("title"));
+		var pageValues = $(this).attr("id").split(":");
+		
+		var callPage = pageValues[0];
+		var callValues = pageValues[1];
+		
+		$.post( "pages/popup-call.php", { 
+						callPage: callPage,   
+						callValues: callValues
+		})
+		.done(function( data ) {
+						$("#overlay #overlay-content #overlay-text").html(data);
+		});
+	});
+	
+	$("#close").click(function(e) {
+		$("#overlay").hide();
+	});
+	
 </script>

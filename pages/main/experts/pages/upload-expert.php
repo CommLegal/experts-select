@@ -1,7 +1,7 @@
 <div class= "container main"> 
 
         <div class="col-md-12 mb25">              
-        	<h3>Upload a Document</h3><div class="title-divider"></div>
+        	<h3 class="textshadow" >Upload a Document</h3><div class="title-divider"></div>
     	</div>  
 
 

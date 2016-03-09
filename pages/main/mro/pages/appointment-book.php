@@ -41,7 +41,7 @@
 
 <div class="container main mb25">
 	<div class="col-md-12 mb25">
-		<h3>Appointment Book</h3>  
+		<h3 class="textshadow" >Appointment Book</h3>  
         <div class="title-divider"></div>                
 	</div>
     

@@ -25,7 +25,7 @@ $theDeleted = count($findDeletedUpdates);
 <div class= "container main"> 
 
 <div class="col-md-12 mb25">              
-    <h3>Updates</h3><div class="title-divider"></div>
+    <h3 class="textshadow" >Updates</h3><div class="title-divider"></div>
 </div>  
 
 <div class = "col-md-3" id = "noto-col"><!-- Panel wrap -->    

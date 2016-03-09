@@ -38,4 +38,3 @@ $getAppEndTime = substr($getCompanyRequests[$header]['wr_timeTo'], 11, 17);
 <script src="<?php echo _ROOT ?>/js/jquery.validate.js"></script>
 <script src="<?php echo _ROOT ?>/js/additional-methods.js"></script>
 <script src="<?php echo _ROOT ?>/js/validation.js"></script>
-<script src="<?php echo _ROOT ?>/js/mro-agreement-validation.js"></script>  

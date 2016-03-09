@@ -4,9 +4,9 @@ $info = $expert->getDetails($_SESSION['CME_USER']['login_id']);
 
 $getExpertSalutation = $conn->execute_sql("select", array("*"), "salutations", "", "");
 
-$salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", array("i" => $info[0]['ea_s_id']));
+$currentSalutation = $conn->execute_sql("select", array("*"), "e_accounts", "ea_id=?", array("i" => $_SESSION['CME_USER']['login_id']));
 
-//echo $salutation[0]['ea_s_id'];
+$salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", array("i" => $info[0]['ea_s_id']));
 
 ?>   
 
@@ -20,7 +20,7 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
             <form data-toggle="validator" role="form" id="expert-account" name="expert-account" method="post">	
 				
         <div class="col-md-12 mb25">              
-        	<h3>Your Profile</h3><div class="title-divider"></div>
+        	<h3 class="textshadow" >Your Profile</h3><div class="title-divider"></div>
     	</div> 
                 
                 		  			
@@ -32,7 +32,7 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
                             <select name="ea_s_id" id="ea_s_id" class="form-control" required>
                             		<option name="<?php echo $salutation[0]['s_id'] ?>"><?php echo $salutation[0]['s_title'] ?></option>
 								<?php foreach($getExpertSalutation as $header => $value) { ?>
-									<option name="<?php echo $getExpertSalutation[$header]['s_id'] ?>"><?php echo $getExpertSalutation[$header]['s_title'] ?></option>
+									<option name="<?php echo $getExpertSalutation[$header]['s_id'] ?>" <?php if($currentSalutation[0]['ea_s_id'] == $getExpertSalutation[$header]['s_id']) { ?> selected <?php } ?>><?php echo $getExpertSalutation[$header]['s_title'] ?></option>
 								<?php } ?>
                             </select>
                             
@@ -95,22 +95,20 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
 									$selectOption = $conn->execute_sql("select", array("et_id", "et_type"), "e_type", "", "");
                            
                             ?>
-
-                    <label>Main Speciality:</label>
-                        <select id="expertSpecialty" name="expertSpecialty" class="form-control">
-							<?php foreach($selectOption as $header => $value) { ?>
-                            	<option id="specialist" name="<?php echo $selectOption[$header]['et_id']; ?>"><?php echo $selectOption[$header]['et_type']; ?></option>;
-                            <?php } ?>
-                        </select>
-
                             
-                            <!-- <label class="control-label">Other Specialities</label>
-                            <select name="ea_speciality_other" size="5" multiple="multiple" class="form-control" id="ea_speciality_other">
-                            	<option value="">None</option>
-                            	<option value="1"<?php// echo (($info[0]['ea_speciality_other'] == 1) ? " selected=selected" : "") ?>>1</option>
-                            </select>-->
+						  	<label class="control-label">Profile Password</label>
+                            <input type="text" name="ea_password" class="form-control mb25" id="ea_password" placeholder="Leave this blank to keep your password" value="" />
                             
-						  <label class="control-label">GMC Registration No</label>
+                            <div class="title-divider"></div>
+                            
+                            <label>Main Speciality:</label>
+                            <select id="expertSpecialty" name="expertSpecialty" class="form-control">
+                                <?php foreach($selectOption as $header => $value) { ?>
+                                    <option id="specialist" name="<?php echo $selectOption[$header]['et_id']; ?>"><?php echo $selectOption[$header]['et_type']; ?></option>;
+                                <?php } ?>
+                            </select>
+
+						  	<label class="control-label">GMC Registration No</label>
                             <input type="text" name="ea_gmc_reg" class="form-control" id="ea_gmc_reg" value="<?php echo $info[0]['ea_gmc_reg'] ?>" required>
                         
                         </div>

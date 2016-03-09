@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <!--<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/south-street/jquery-ui.css" rel="stylesheet">-->
+    <link href="jquery.signature.css" rel="stylesheet"><link href="../css/cme-main.css" rel="stylesheet">
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+ 	<script src="jquery.signature.js"></script>
+    
+</head>
+
+
+<body>
+
+    <p>Please sign here:</p>
+    <div id="sig" class="kbw-signature"><canvas width="0" height="0">Your browser doesn't support signing.</canvas></div>
+    <button id="clear">Clear</button> 
+    <button id="json">Save</button>
+    <button id="redrawButton">Copy</button> 
+
+	<input name = "sigStore" id = "sigStore" type="text" value="before" />
+    
+	<div id="redrawSignature" class="kbw-signature2"><canvas width="0" height="0">Your browser doesn't support signing.</canvas></div>
+
+</body>
+
+<script>
+
+			   
+		jQuery.('#sig').signature();
+		
+		$('#clear').click(function() {
+			$('#sig').signature('clear');
+		});
+		
+		$('#json').click(function() {
+			var sig = $('#sig').signature('toJSON');
+			$('#sigStore').val(sig);
+		});
+		
+		$('#svg').click(function() {
+			alert($('#sig').signature('toSVG'));
+		});
+		
+		$('#redrawButton').click(function() { 
+			$('#redrawSignature').signature('draw', $('#sigStore').val()); 
+		}); 
+		 
+		$('#redrawSignature').signature({disabled: true}); 
+
+
+</script>

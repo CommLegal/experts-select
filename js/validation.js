@@ -61,7 +61,31 @@ $.validator.setDefaults({
 	}, "Time must be HH:MM:SS format (such as 11:15:00).");
 	
 	
+
+//EXPERT REQUEST AGREEMENT
+$("#expert-agreement-request").validate({
+  rules: {
+		"app-quota": {
+		  required: true,
+		  digits: true,
+		},
+		"app-rate": {
+		  required: true,
+		  digits: true,
+		},
+		"message1": {
+		  required: true,
+		  Vmessageboxes: true,
+		},
+	},
+  messages: {
+		Vname: {
+		  required: "Please fill in this box.<br />",
+		},
+	}
+});
 	
+
 	
 //MEDICAL REPORT FORM
 $("#contact_form").validate({

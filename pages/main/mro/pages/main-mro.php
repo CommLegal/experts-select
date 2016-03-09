@@ -24,7 +24,7 @@ $theDeleted = count($findDeletedUpdates);
 
 <div class= "container">   
     <div class="col-md-12 mb25">              
-        <h3>Updates</h3><div class="title-divider"></div>
+        <h3 class="textshadow">Updates</h3><div class="title-divider"></div>
     </div> 
     
     
@@ -45,15 +45,15 @@ $theDeleted = count($findDeletedUpdates);
                     </button>
                     <hr />
                     <button class="btn btn-primary maxwid textleft badgefix" id ="appreq-btn">
-                        Appointment <br/>Requests <span class = "badge pull-right"><?php echo $requests; ?></span> 
+                        <span class = "badge pull-right"><?php echo $requests; ?></span> Appointment <br/>Requests 
                     </button>
                     <hr />
                     <button class="btn btn-success maxwid textleft badgefix" id ="appup-btn">
-                        Appointment <br />Updates <span class = "badge pull-right"><?php echo $appChange; ?></span> 
+                        <span class = "badge pull-right"><?php echo $appChange; ?></span> Appointment <br />Updates 
                     </button>
                     <hr />
                     <button class="btn btn-danger maxwid textleft badgefix" id ="agreement-btn">
-                        Agreement <br />Enquiries <span class = "badge pull-right"><?php echo $appEnquiry; ?></span> 
+                        <span class = "badge pull-right"><?php echo $appEnquiry; ?></span> Agreement <br />Enquiries 
                     </button>
                     <hr />
                     <button class="btn btn-warning maxwid textleft badgefix" id ="archived-btn">

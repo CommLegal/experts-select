@@ -30,7 +30,10 @@ function Header()
 
 // Begin configuration
 		
-	//SECTION A
+		//TEST NEW
+
+		
+		//SECTION A
 		$fullName = $_POST['fullName'];
 		$dob1 = $_POST['date-picker-DOB'];
 		$occupation = $_POST['occupation'];
@@ -162,13 +165,25 @@ $pdf->Cell( 0, 15, $dateMade, 0, 0, 'C' );
 $pdf->AddPage();
 
 
-
-
-
 ///// SECTION A /////
 //$pdf->Image( $logoFile, $logoXPos2, $logoYPos2, $logoWidth2 );
 
-$pdf->SetTextColor( $textColour[0], $textColour[1], $textColour[2] );
+
+$i = 2;
+foreach($_POST['fields2'] as $key=>$value) 
+{
+   if(!empty($value))
+   {
+		$pdf->SetFont( 'Arial', 'B', 12 );
+		$pdf->Write( 6, "Additional " . $i . ":" );
+		$pdf->Ln( 6 );
+		$pdf->SetFont( 'Arial', '', 12 );
+		$pdf->Write( 6, $value );
+		$pdf->Ln( 12 );
+		$i++;
+   }
+}
+
 $pdf->SetFont( 'Arial', '', 20 );
 $pdf->Write( 19, "Section A - " . $fullName . " " . "Details" );
 $pdf->Ln( 21 );
@@ -333,6 +348,22 @@ $pdf->SetFont( 'Arial', '', 12 );
 $pdf->Write( 6, $position );
 $pdf->Ln( 12 );
 
+$i = 1;
+foreach($_POST['b_additionals'] as $key=>$value) 
+{
+   if(!empty($value))
+   {
+		$pdf->SetFont( 'Arial', 'B', 12 );
+		$pdf->Write( 6, "Additional " . $i . ":" );
+		$pdf->Ln( 6 );
+		$pdf->SetFont( 'Arial', '', 12 );
+		$pdf->Write( 6, $value );
+		$pdf->Ln( 12 );
+		$i++;
+   }
+}
+
+
 $pdf->AddPage();
 ///// SECTION C /////
 //$pdf->Image( $logoFile, $logoXPos2, $logoYPos2, $logoWidth2 );
@@ -355,6 +386,21 @@ $pdf->Ln( 6 );
 $pdf->SetFont( 'Arial', '', 12 );
 $pdf->Write( 6, $effects );
 $pdf->Ln( 12 );
+
+$i = 1;
+foreach($_POST['c_additionals'] as $key=>$value) 
+{
+   if(!empty($value))
+   {
+		$pdf->SetFont( 'Arial', 'B', 12 );
+		$pdf->Write( 6, "Additional " . $i . ":" );
+		$pdf->Ln( 6 );
+		$pdf->SetFont( 'Arial', '', 12 );
+		$pdf->Write( 6, $value );
+		$pdf->Ln( 12 );
+		$i++;
+   }
+}
 
 //$pdf->AddPage();
 ///// SECTION D /////
@@ -384,8 +430,28 @@ $pdf->SetFont( 'Arial', '', 12 );
 $pdf->Write( 6, $overview );
 $pdf->Ln( 12 );
 
+$i = 1;
+foreach($_POST['d_additionals'] as $key=>$value) 
+{
+   if(!empty($value))
+   {
+		$pdf->SetFont( 'Arial', 'B', 12 );
+		$pdf->Write( 6, "Additional " . $i . ":" );
+		$pdf->Ln( 6 );
+		$pdf->SetFont( 'Arial', '', 12 );
+		$pdf->Write( 6, $value );
+		$pdf->Ln( 12 );
+		$i++;
+   }
+}
+
+
 //$pdf->AddPage();
 ///// SECTION E /////
+$pdf->SetFont( 'Arial', '', 20 );
+$pdf->Write( 19, "Section E" );
+$pdf->Ln( 21 );
+
 $pdf->SetFont( 'Arial', 'B', 12 );
 $pdf->Write( 6, "Seatbelt details: " );
 $pdf->Ln( 6 );
@@ -424,6 +490,21 @@ $pdf->Ln( 6 );
 $pdf->SetFont( 'Arial', '', 12 );
 $pdf->Write( 6, $treatment3 );
 $pdf->Ln( 6 );
+
+$i = 1;
+foreach($_POST['f_additionals'] as $key=>$value) 
+{
+   if(!empty($value))
+   {
+		$pdf->SetFont( 'Arial', 'B', 12 );
+		$pdf->Write( 6, "Additional " . $i . ":" );
+		$pdf->Ln( 6 );
+		$pdf->SetFont( 'Arial', '', 12 );
+		$pdf->Write( 6, $value );
+		$pdf->Ln( 12 );
+		$i++;
+   }
+}
 
 $pdf->AddPage();
 ///// SECTION G /////

@@ -20,7 +20,7 @@
 	
 	$mroSubject = "Appointment on " . $selectUserAppointment[0]['eap_date'] . " has been cancelled";
 
-	$cancelAppointment = $conn->execute_sql("update", array("eap_cancelled" => "1"), "e_appointments", "eap_id =?", array("i" => $_POST['value']));
+	$cancelAppointment = $conn->execute_sql("update", array("eap_cancelled" => "1", "eap_cancelled_date" => date("Y-m-d H:i:s")), "e_appointments", "eap_id =?", array("i" => $_POST['value']));
 
 	$updateExAgreement = $conn->execute_sql("insert", array("eu_recipient_id" => $_SESSION['CME_USER']['login_id'], 
 														"eu_sender_id" => "0", 

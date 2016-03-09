@@ -88,9 +88,9 @@ $selectCreatedDay = $conn->execute_sql("select", array("*, COUNT(*) AS appCount"
     <div id = "statbox" class="mb25 col-md-12" style="display:none;">
         <div class = "mb25 col-md-12">
         	<?php 
-			$number1 = $selectCancelled[0]['cancelledApps']; 
-			$number2 = $selectEmpty[0]['emptyApps']; 
-			$number3 = $selectFilled[0]['filledApps']; 
+				$number1 = $selectCancelled[0]['cancelledApps']; 
+				$number2 = $selectEmpty[0]['emptyApps']; 
+				$number3 = $selectFilled[0]['filledApps']; 
 			?>
 			<?php include('../includes/pie.php'); ?>     
         </div>
@@ -107,6 +107,7 @@ $selectCreatedDay = $conn->execute_sql("select", array("*, COUNT(*) AS appCount"
             <hr></hr>
         </div>
         <div class = "col-md-12">
+
          <table class="table table-responsive ">  
               <tbody>
                 <tr class="appbook-header">
@@ -145,13 +146,98 @@ $selectCreatedDay = $conn->execute_sql("select", array("*, COUNT(*) AS appCount"
 
              </tbody>
          </table>
+      
+      <div  id = "dvData">
+         
+          <table id="dvData" class="table table-responsive hidden">  
+              <tbody>
+              
+                <tr class="appbook-header">
+                    <td>Date/Time</td>
+                    <td>Venue</td>
+                    <td>Expert</td>
+                    <td>MRO</td>
+                    <td>Patient</td>
+                    <td>Appointment Notes</td>
+                    <td>Attendance Status</td>
+                    <td>Cancellation Date</td>
+                    <td>Appointment Duration</td> 
+                </tr>
+         
+         <?php 
+		 
+		 $selectCreatedApps = $conn->execute_sql("select", array("*"), "e_appointments", "eap_v_id=?", array("i" => $_POST['callValues']));
+		 
+		 
+		 foreach ($selectCreatedApps as $header => $value) { 
+         
+         		$csvDate = $conn->execute_sql("select", array("*"), "e_appointments JOIN e_accounts ON eap_ea_id = ea_id 
+															  						JOIN m_accounts ON eap_ml_id = ma_id 
+																					JOIN venues ON eap_v_id = v_id
+																					JOIN c_clients ON eap_cc_id = cc_id", "eap_v_id=? AND eap_date=?", array("i" => $selectCreatedApps[$header]['eap_v_id'], "s" => $selectCreatedApps[$header]['eap_date']));
+				
+         ?>       
+                <tr style="" class="tablerow show-overlay">
+                    
+                        <td><?php echo $selectCreatedApps[$header]['eap_date']; ?></td>
+                        <td><?php echo $csvDate[0]['v_name']; ?></td>
+                        <td><?php echo $csvDate[0]['ea_forename'] . " " . $csvDate[0]['ea_surname']; ?></td>
+                        <td><?php
+							if($csvDate[0]['eap_ml_id'] == "0") { 
+								echo "Open Appointment";
+							} else { 
+								echo $csvDate[0]['ma_forename'] . " " . $csvDate[0]['ma_surname']; 
+							}?>
+						</td>
+                        <td><?php echo $csvDate[0]['cc_firstname'] . " " . $csvDate[0]['cc_surname']; ?></td>
+                        <td><?php echo $csvDate[0]['eap_notes']; ?></td>
+                        <td><?php
+								if($csvDate[0]['eap_cancelled'] == "1") {
+									echo "Cancelled";
+								} elseif($csvDate[0]['eap_cc_id'] == "0") {
+									echo "Not Booked";	
+								} else { 
+									echo "Attended";
+								
+		 					}?>
+                        </td>
+                        <td><?php
+								if($csvDate[0]['eap_cancelled'] !== "1") {
+									echo "N/A";
+								} else { 
+									echo $csvDate[0]['eap_cancelled_date'];
+								
+		 					}?>
+                        </td>
+                        <td><?php echo $csvDate[0]['eap_timeslot'] . " Minutes"; ?></td>
+                        
+                    </tr>
+                
+         <?php } ?>
+         
+              </tbody>
+         </table>        
+                
+         
+         <a class="btn btn-primary export">Export to CSV &nbsp; <i class="fa fa-save"></i></a>
+
+
+
+		</div>
         </div>
         
     </div>
     
     <div id="results-anchor"></div>
+
+    
+    
+    
+    
+    
 </div>
 </body>
+<script src="./js/csv_generator.js"></script>
 <script src="<?php echo _ROOT ?>/js/modal.js"></script>
 
 <!-- Validation -->

@@ -21,16 +21,13 @@ $venueLat =  $getVenueLocation[0]['v_latitude'];
 
 $venueLong =  $getVenueLocation[0]['v_longitude']; 
 $venueName = $getVenueLocation[0]['v_name'];
+
 // GET APPOINTMENTS WITHIN CERTAIN DISTANCE END
-
-
-
 $newFormat1 = new DateTime($_POST['e_appointments--eap_date_after']);
 $appdateFormat1 = $newFormat1->format('Y-m-d H:i:s');
 
 $newFormat2 = new DateTime($_POST['e_appointments--eap_date_before']);
 $appdateFormat2 = $newFormat2->format('Y-m-d 23:59:59');
-
 // GET APPOINTMENTS WITHIN CERTAIN DISTANCE 
 
 //$result = $conn->mysql_query('
@@ -49,7 +46,7 @@ array('z.*,
 JOIN ( 
 
 SELECT ' . $venueLat . ' AS latpoint, ' . $venueLong . ' AS longpoint,
-' . $radius . ' AS radius, 111.045 AS distance_unit
+' . $radius . ' AS radius, 111.1111 AS distance_unit
 ) AS p ON 1=1',
 
 'z.wr_latitude
@@ -63,7 +60,7 @@ AND ((p.distance_unit
 * COS(RADIANS(z.wr_latitude))
 * COS(RADIANS(p.longpoint) - RADIANS(z.wr_longitude))
 + SIN(RADIANS(p.latpoint))
-* SIN(RADIANS(z.wr_latitude))))) * 0.621371) <= z.wr_radius
+* SIN(RADIANS(z.wr_latitude))))) * 0) <= z.wr_radius
 AND wr_appCancelled=? AND wr_appConfirmed=? AND wr_timeFrom >=? AND wr_timeTo <=?
 ORDER BY distance_in_km', array("i1" => "0", "i2" => "0", "s1" => $appdateFormat1, "s2" => $appdateFormat2));
 

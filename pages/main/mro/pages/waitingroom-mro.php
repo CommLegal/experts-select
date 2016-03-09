@@ -2,10 +2,10 @@
         if ($_SESSION['CME_USER']['type'] == "mro") { $btncolor = "btn btn-primary";} 
         else {$btncolor = "btn btn-success";}
     ?>
-<head>
-<script type="text/javascript" src="<?php echo _ROOT ?>/js/jquery-1.3.2.min.js"></script>
+
+
 <script type="text/javascript" src="<?php echo _ROOT ?>/js/waitingroom-mro-map.js"></script>
-</head>
+
 
 <!-- USER DETAILS MODAL -->
 <div id="overlay" style = "margin-top:300px" >
@@ -31,7 +31,7 @@
 
             
     <div class="col-md-12 mb10">              
-        <h3>Waiting Room</h3>
+        <h3 class="textshadow" >Waiting Room</h3>
         <div class="title-divider"></div>
     </div> 
     		
@@ -166,4 +166,5 @@
 </div>  
 <!-- Container Close -->
 </body>
+
 

@@ -4,8 +4,11 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-body {padding-top: 0px; position: relative; overflow-y: scroll; /* Nav compensation */}
-
+body {padding-top: 0px; position: relative; overflow-y: scroll; /* Nav compensation */
+background-image:url('../images/bg1.png');
+}
+.kbw-signature { width: 200px; height: 100px; }
+.kbw-signature2 { width: 200px; height: 100px; }
 .appbook-header{
 		background-color:#337AB7; 
   		border-top-left-radius: 10px;
@@ -14,17 +17,37 @@ body {padding-top: 0px; position: relative; overflow-y: scroll; /* Nav compensat
 		color:white;
 }
 
+.add_button:hover{text-decoration:none; cursor:pointer;}
+.add_button2:hover{text-decoration:none; cursor:pointer;}
+.add_button:active{text-decoration:none; cursor:pointer;}
+.add_button2:active{text-decoration:none; cursor:pointer;}
+.add_button:visited{text-decoration:none; cursor:pointer;}
+.add_button2:visited{text-decoration:none; cursor:pointer;}
+
+.remove_button:hover{text-decoration:none; cursor:pointer;}
+.remove_button2:hover{text-decoration:none; cursor:pointer;}
+.remove_button:active{text-decoration:none; cursor:pointer;}
+.remove_button2:active{text-decoration:none; cursor:pointer;}
+.remove_button:visited{text-decoration:none; cursor:pointer;}
+.remove_button2:visited{text-decoration:none; cursor:pointer;}
+
+
+.kbw-signature {
+	display: inline-block;
+	border: 1px solid #a0a0a0;
+	-ms-touch-action: none;
+}
+
 .selectedRow {
   background-color: darkgrey;
   cursor: pointer;
-  color:white;
+  color: white;
 }
 
 .date{margin-bottom:2px;}
 
-.appbook-content{
-		text-align:center;
-}
+.appbook-content{text-align:center;}
+
 .textbold {font-weight:bold;}
 
 #msg_btn{font-size:18px;}
@@ -66,7 +89,7 @@ label.error {
 	text-align:center;
 	}
 
-label{text-shadow: 1px 1px white;}
+label{text-shadow: 3px 2px white;}
 .textshadow{text-shadow: 1px 1px white;}
 
 .tg {border-collapse:collapse;border-spacing:0;border-color:#ccc;margin:0px auto;}
@@ -348,6 +371,8 @@ footer {
     padding: 5px 15px;
 	color: #666;
 }
+.remove_button{text-decoration:none;}
+.text-grey{color:#666;}
 .nav-tabs>li>a, .nav-tabs>li>a:focus, .nav-tabs>li>a:hover {
     position: relative;
     display: block;
@@ -569,6 +594,7 @@ ul.nav.navbar-nav.navbar-right.navMenu {
 .formbg {
 	border: 1px solid #CCC;
 	border-radius: 20px;
+	background-color:white;
 	/* padding: 20px 0 25px 0; */
 }
 label {

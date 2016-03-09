@@ -55,7 +55,6 @@ class Calendar {
 		$GLOBALS['radius'] = $radius;
 		
 		$GLOBALS['month'] = $newMonth;
-		
          
         if(null==$year&&isset($_GET['year'])){
  
@@ -158,8 +157,18 @@ class Calendar {
         }
          
         if( ($this->currentDay!=0)&&($this->currentDay<=$this->daysInMonth) ){
+			
+			if($GLOBALS['month'] == NULL) {
              
-            $this->currentDate = date('Y-m-d H:i:s',strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
+            	$this->currentDate = date('Y-m-d',strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
+				
+			} else { 
+			
+				$this->currentDate = date('Y-' . $GLOBALS['month'] . '-d',strtotime($this->currentYear.'-'.$this->currentMonth.'-'.($this->currentDay)));
+				
+				//echo $this->currentDate;
+				
+			}
              
             $cellContent = $this->currentDay;
 			
@@ -194,7 +203,8 @@ class Calendar {
              
             $this->currentDay++;   
 			
-             
+			var_dump($result);
+			
         }else{
              
             $this->currentDate =null;
@@ -202,7 +212,6 @@ class Calendar {
             $cellContent=null;
         }
 		
-             
 		if(($this->currentDate >= $GLOBALS['datefrom']) &&  ($this->currentDate <= $GLOBALS['dateto'])) {
 			
 			
@@ -225,7 +234,7 @@ class Calendar {
 		
 		//$thisMonth = $this->currentMonth==12?1:intval($this->currentMonth);
 		
-		$thisMonth = $this->currentMonth==12?1:intval($this->currentMonth);
+		$thisMonth = $this->currentMonth==12?0:intval($this->currentMonth);
          
         $nextMonth = $this->currentMonth==12?1:intval($this->currentMonth)+1;
          
@@ -245,9 +254,9 @@ class Calendar {
 		$date->sub(new DateInterval('P1M'));
 		$subMonth = $date->format('m');
 		
-		//echo $currentYM;
+		echo $currentYM;
 		
-		if($currentYM == "2015-01") { 
+		if($subMonth == "12") { 
 		
 			return
             '<div class="header">'.
@@ -255,7 +264,7 @@ class Calendar {
                 '<a class="next" id="next" name="next" value="'.$addMonth.'" href="'.$this->naviHref.'?month='.sprintf("%02d", $nextMonth).'&year='.$nextYear.'">Next</a>'.
             '</div>';
 		
-		}elseif($currentYM == "2016-01") {
+		}elseif($addMonth == "01") {
          
 			return
 				'<div class="header">'.

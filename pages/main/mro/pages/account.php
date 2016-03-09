@@ -23,7 +23,7 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
             <input type="hidden" name="mroPermissions" id="mroPermissions" value="<?php echo $getMroInformation[0]['ma_permissions'] ?>" />
 				
             <div class="col-md-12 mb25">              
-                <h3>Your Profile</h3><div class="title-divider"></div>
+                <h3 class="textshadow">Your Profile</h3><div class="title-divider"></div>
             </div> 
                 		  			
 				<div class="form-group">
@@ -58,11 +58,11 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
                         <!--<h4>Where are you?</h4>
                         <hr />-->
 						<label class="control-label">Address</label>
-                            <input type="text" name="ma_address1" class="form-control" id="ma_address1" value="<?php echo $getOrgInformation[0]['mo_address_1'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                            <input type="text" placeholder = "Line 1" name="ma_address1" class="form-control" id="ma_address1" value="<?php echo $getOrgInformation[0]['mo_address_1'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
-                            <input type="text" name="ma_address2" class="mt3 form-control" id="ma_address2" value="<?php echo $getOrgInformation[0]['mo_address_2'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                            <input type="text"  placeholder = "Line 2" name="ma_address2" class="mt3 form-control" id="ma_address2" value="<?php echo $getOrgInformation[0]['mo_address_2'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
-                            <input type="text" name="ma_address3" class="mt3 form-control" id="ma_address3" value="<?php echo $getOrgInformation[0]['mo_address_3'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                            <input type="text"  placeholder = "Line 3" name="ma_address3" class="mt3 form-control" id="ma_address3" value="<?php echo $getOrgInformation[0]['mo_address_3'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
                             
                             <label class="control-label">City</label>
                             <input type="text" name="ma_city" class="form-control" id="ma_city" value="<?php echo $getOrgInformation[0]['mo_city'] ?>" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
@@ -72,6 +72,13 @@ $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", 
                             
                             <label class="control-label">Country</label>
                             <input type="text" name="ma_country" class="form-control" id="ma_country" value="United Kingdom" <?php if($getMroInformation[0]['ma_permissions'] < 3) { ?> disabled <?php } ?>>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                    	<div class="col-lg-12">
+                        	<label class="control-label">Password</label>
+                            <input type="text" name="ma_password" class="form-control" id="ma_password" placeholder="Leave this blank to keep your password" value=""/>
                         </div>
                     </div>
                     

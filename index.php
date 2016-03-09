@@ -1,9 +1,18 @@
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
 	
+    <!--
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    
+    -->
+
 </head>
 
+
+    
 <?php 
 
 require("includes/config.php");
@@ -34,7 +43,6 @@ if($_REQUEST['action'] == "signOut")
 		session_destroy();
 		header("location: index.php");
 	}
-
 ?> 
 
 
@@ -307,6 +315,9 @@ if($_REQUEST['action'] == "signOut")
 							elseif($_REQUEST['page'] == "upload-expert") {
 								require("pages/main/experts/pages/upload-expert.php");
 							}
+							elseif($_REQUEST['page'] == "csvtest") {
+								require("csvtest.php");
+							}
 							elseif($_REQUEST['page'] == "upload-expert-action") {
 								require("pages/main/experts/pages/upload-expert-action.php");
 							}
@@ -428,6 +439,12 @@ if($_REQUEST['action'] == "signOut")
 								if($_REQUEST['page'] == "about-us") {
 									require("pages/about-us.php");
 							}
+								if($_REQUEST['page'] == "csvtest") {
+									require("csvtest.php");
+							}
+								if($_REQUEST['page'] == "testaction") {
+									require("testaction.php");
+							}
 
 						}	
                     }
@@ -481,6 +498,7 @@ if($_REQUEST['action'] == "signOut")
 							elseif(($_REQUEST['displayPage'] == "contact_action") && ($_SESSION['CME_USER'] == "")){
 								require("pages/contact_action.php");
 							}
+
 							elseif(($_REQUEST['displayPage'] == "help") && ($_SESSION['CME_USER'] == "")) {
 								require("pages/help.php");
 							}
@@ -514,10 +532,10 @@ if($_REQUEST['action'] == "signOut")
         <div class="row pb25 pt25">
 				<div class="col-xs-4 col-md-4 column">
 					<h4>Address</h4>
-					OneCall Direct<br />
+					<p class="text-grey">OneCall Direct<br />
                     First Point<br />
                     Doncaster<br />
-                    DN4 5JQ<br />
+                    DN4 5JQ</p><br />
 				</div>
 				<div class="col-xs-4 col-md-4 column whitebg">
 					<h4>Corporate Information</h4>
@@ -561,11 +579,12 @@ if($_REQUEST['action'] == "signOut")
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-
-<!-- -->
+	
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="<?php echo $_ROOT ?>sig/jquery.signature.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+    
     <!--<script src="/js/jquery.validate.js"></script>-->
     <script src="<?php echo _ROOT ?>/js/custom.js"></script><!-- Move to includes at the top of the page -->
     <script src="<?php echo _ROOT ?>/js/bootstrap.min.js"></script>
@@ -582,9 +601,12 @@ if($_REQUEST['action'] == "signOut")
     <script src="<?php echo _ROOT ?>/js/jquery.validate.js"></script>
     <script src="<?php echo _ROOT ?>/js/additional-methods.js"></script>
     <script src="<?php echo _ROOT ?>/js/validation.js"></script>
-    <script src="<?php echo _ROOT ?>/js/mro-agreement-validation.js"></script>
+
     
 	<script src="<?php echo _ROOT ?>/js/postcoder.js"></script>
+    
+    
+    
     
     
 <script>
