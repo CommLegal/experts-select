@@ -32,7 +32,8 @@ class Calendar {
     */
 	
     public function show($dateFrom, $dateTo, $lat, $long, $radius, $newMonth) {
-        $year  = null;
+        
+		$year  = null;
          
         $month = null;
 		

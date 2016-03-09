@@ -18,7 +18,7 @@ $venueLat =  $_POST['latitude'];
 
 $venueLong =  $_POST['vbook-longitude']; 
 
-$newMonth = $_POST['value'];
+$newMonth = $_POST['value']; 
 
 $newFormat1 = new DateTime($_POST['date-picker-ven-from']);
 $appdateFormat1 = $newFormat1->format('Y-m-d H:i:s');
