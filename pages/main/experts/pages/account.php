@@ -8,6 +8,12 @@ $currentSalutation = $conn->execute_sql("select", array("*"), "e_accounts", "ea_
 
 $salutation = $conn->execute_sql("select", array("*"), "salutations", "s_id=?", array("i" => $info[0]['ea_s_id']));
 
+$sigFinder = $conn->execute_sql("select", array("*"), "e_accounts", "s_id=?", array("i" => $currentSig[0]['ea_signature']));
+
+$getSig = $conn->execute_sql("select", array("ea_signature"), "e_accounts", "ea_id=?", array("i" => $_SESSION['CME_USER']['login_id']));
+
+//echo $getSig[0]['ea_signature'];
+
 ?>   
 
 <?php 

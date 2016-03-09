@@ -1,20 +1,4 @@
-<head>
-	
-    <!--
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-    
-    -->
-
-</head>
-
-
-    
 <?php 
-
 require("includes/config.php");
 header('Cache-Control: no cache');
 session_start();
@@ -24,7 +8,6 @@ require("includes/mysqlwrapper_class.php");
 $conn = new mysqlwrapper_class;
 
 session_start();
-
 
 $login = new login_class();
 
@@ -71,7 +54,8 @@ if($_REQUEST['action'] == "signOut")
     <link href="<?php echo _ROOT ?>/css/cme-main.css" rel="stylesheet">
     <link href="<?php echo _ROOT ?>/css/bootstrap-datepicker.min.css" rel="stylesheet">  
     
-
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -577,16 +561,15 @@ if($_REQUEST['action'] == "signOut")
         </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-	
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="<?php echo $_ROOT ?>sig/jquery.signature.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  -->
     
+    <!-- <script type="text/javascript" src="<?php //echo $_ROOT ?>sig/jquery.signature.js"></script> -->
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js" async defer></script>
+
     <!--<script src="/js/jquery.validate.js"></script>-->
-    <script src="<?php echo _ROOT ?>/js/custom.js"></script><!-- Move to includes at the top of the page -->
+    
+    <script src="<?php echo _ROOT ?>/js/custom.js"></script>
     <script src="<?php echo _ROOT ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo _ROOT ?>/js/bootstrap-datepicker.js"></script>
     <script src="<?php echo _ROOT ?>/locales/bootstrap-datepicker.en-GB.min.js"></script>
@@ -594,23 +577,22 @@ if($_REQUEST['action'] == "signOut")
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="<?php echo _ROOT ?>/js/ie10-viewport-bug-workaround.js"></script>
  
-    <!-- cookie bar -->
-    <script src="js/jquery.cookiebar.js"></script>
+    <!-- Cookie bar -->
+    <script src="<?php echo _ROOT ?>/js/jquery.cookiebar.js"></script>
     
     <!-- Validation -->
     <script src="<?php echo _ROOT ?>/js/jquery.validate.js"></script>
     <script src="<?php echo _ROOT ?>/js/additional-methods.js"></script>
     <script src="<?php echo _ROOT ?>/js/validation.js"></script>
-
-    
 	<script src="<?php echo _ROOT ?>/js/postcoder.js"></script>
-    
-    
-    
-    
-    
+
+<!--
+     Maps works in header
+    <script src="https://maps.googleapis.com/maps/api/js" async defer></script>
+-->
+
 <script>
-//Wills magical cookie bar
+//Wills magical mystical cookie bar
 	$.cookieBar(); 
 //Use this to change classes according to the browser
 

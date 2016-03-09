@@ -1,13 +1,5 @@
 <?php 
 
-//START - TURN ERRORS ON
-/*ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(-1);*/
-//END - TURN ERRORS ON
-
-//var_dump($_POST);
-
 class Calendar {  
      
     /**
@@ -55,6 +47,8 @@ class Calendar {
 		$GLOBALS['radius'] = $radius;
 		
 		$GLOBALS['month'] = $newMonth;
+		
+		echo $datefrom;
          
         if(null==$year&&isset($_GET['year'])){
  
@@ -86,6 +80,7 @@ class Calendar {
 		if($GLOBALS['month'] == NULL) { 
 		
 			$this->currentMonth = $newMonth;
+			
 			
 		}else { 
 		
@@ -137,9 +132,11 @@ class Calendar {
     }
      
     /********************* PRIVATE **********************/ 
+	
     /**
     * create the li element for ul
     */
+	
     private function _showDay($cellNumber){
 		
 		global $conn;
@@ -203,8 +200,6 @@ class Calendar {
              
             $this->currentDay++;   
 			
-			var_dump($result);
-			
         }else{
              
             $this->currentDate =null;
@@ -214,12 +209,12 @@ class Calendar {
 		
 		if(($this->currentDate >= $GLOBALS['datefrom']) &&  ($this->currentDate <= $GLOBALS['dateto'])) {
 			
-			
-		
 
 			return '<li id="test" value="'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
                 ($cellContent==null?'mask':'').'"><a class="calendarDate" name="calendarDate" requestID="'.$this->currentDate.'" href="#"><b>'.$cellContent.'</b></a><small>'. " /<u>" . $result[0]['rows'].'</u></small></li>';
-		} else { 
+		} 
+		else 
+		{ 
 			return '<li id="'.$this->currentDate.'" value="'.$this->currentDate.'" class="'.($cellNumber%7==1?' start ':($cellNumber%7==0?' end ':' ')).
                 ($cellContent==null?'mask':'').'">'.$cellContent.'</li>';
 		}
@@ -254,7 +249,7 @@ class Calendar {
 		$date->sub(new DateInterval('P1M'));
 		$subMonth = $date->format('m');
 		
-		echo $currentYM;
+		//echo $currentYM;
 		
 		if($subMonth == "12") { 
 		
@@ -376,7 +371,7 @@ class Calendar {
 		$('#loading').fadeIn();
 		var month = $("#next").attr("value");
 		$.post(
-		   'includes/mro/book-app-search2.php',
+		   'includes/mro/book-app-search.php',
 			{value: month},
 			function(month){				
 				$("#success").html(month);			
@@ -390,7 +385,7 @@ class Calendar {
 		$('#loading').fadeIn();
 		var month = $("#prev").attr("value");
 		$.post(
-		   'includes/mro/book-app-search2.php',
+		   'includes/mro/book-app-search.php',
 			{value: month},
 			function(month){				
 				$("#success").html(month);
