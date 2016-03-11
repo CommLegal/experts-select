@@ -1,8 +1,8 @@
-#RewriteEngine on
-#RewriteBase /public_html/experts-select/
+RewriteEngine on
+RewriteBase /public_html/experts-select/
 
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^([^/]*) index.php?page=$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^/]*) index.php?page=$1 [L]
 
 <ifModule mod_headers.c>
 ExpiresActive On
@@ -47,6 +47,5 @@ Header set Cache-Control "max-age=86400"
 DirectoryIndex index.php
 # Use PHP55 as default
   AddHandler application/x-httpd-php55 .php
-  
-  
+ 
   
